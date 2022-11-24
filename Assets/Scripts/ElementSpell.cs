@@ -10,15 +10,17 @@ public class ElementSpell : MonoBehaviour
     public enum Element
     {
         None,
-        Earth,
+        Ground,
         Fire,
         Water,
-        Wind
+        Air
     }
 
+    private Element finalElement;
     private Element[] elements = new Element[3];
     private int[] elementCooldowns = new int[4];
     private int[] elementCounts = new int[4];
+    private SpellAir spellAir = new SpellAir();
     
     public void AddElement(Element element)
     {
@@ -30,7 +32,7 @@ public class ElementSpell : MonoBehaviour
         elementBar.SetElements(elements);
     }
 
-    public void CastSpell(GameObject caster)
+    public void CastElements(GameObject caster, Vector3 target)
     {
         Array.Clear(elementCounts, 0, elementCounts.Length);
         if (elements.Contains(Element.None))
@@ -54,11 +56,13 @@ public class ElementSpell : MonoBehaviour
         {
             if (elementCounts[i] >= 2)
             {
+                elementCounts[i] -= 2;
+                finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 1)+1);
                 switch (i)
                 {
                     case 0:
                         {
-                            //EarthSpell(elementCounts, caster);
+                            //EarthSpell(finalElement, caster);
                             break;
                         }
                     case 1:
@@ -73,7 +77,7 @@ public class ElementSpell : MonoBehaviour
                         }
                     case 3:
                         {
-                            //WindSpell(elementCounts, caster);
+                            spellAir.CastSpell(finalElement, caster, target);
                             break;
                         }
                 }
