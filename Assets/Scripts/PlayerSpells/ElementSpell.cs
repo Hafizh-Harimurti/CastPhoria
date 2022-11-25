@@ -13,6 +13,8 @@ public class ElementSpell : MonoBehaviour
     private SpellAir spellAir;
     [SerializeField]
     private SpellGround spellGround;
+    [SerializeField]
+    private SpellGeneral spellGeneral;
 
     private Element finalElement;
     private Element[] elements;
@@ -104,7 +106,8 @@ public class ElementSpell : MonoBehaviour
                 return;
             }
         }
-        //GeneralSpell(elementCounts, caster);
+        finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 0) + 1);
+        spellGeneral.CastSpell(finalElement, caster, target, spellLevel);
         Array.Clear(elements, 0, elements.Length);
         elementBar.ResetElements();
         return;
