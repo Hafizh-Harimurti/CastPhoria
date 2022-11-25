@@ -16,7 +16,7 @@ public class ElementBar : MonoBehaviour
         images[2].sprite = sprites[0];
     }
 
-    public void SetElements(ElementSpell.Element[] elements)
+    public void SetElements(Element[] elements)
     {
         for (int i = 0; i < elements.Length; i++)
         {

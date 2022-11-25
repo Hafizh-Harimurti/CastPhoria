@@ -15,7 +15,7 @@ public class Player : EntityBase
     {
         OnStart();
         healthBar.SetMaxHealth(maxHealth);
-        elementSpell = gameObject.GetComponent<ElementSpell>();
+        elementSpell = GetComponent<ElementSpell>();
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class Player : EntityBase
     {
         moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        if (moveX != 0 || moveY != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
-            targetPos = (Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")) * castRange;
+            targetPos = (Vector3.right * Input.GetAxisRaw("Horizontal") + Vector3.up * Input.GetAxisRaw("Vertical")).normalized * castRange + transform.position;
             animator.SetBool("isMoving", true);
             animator.SetBool("isAttacking", false);
         }
@@ -58,12 +58,7 @@ public class Player : EntityBase
 
     void DoAttack()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isActive = false;
-            animator.SetBool("isAttacking", true);
-            Debug.Log(animator);
-        }
+        
     }
 
     void HealthUpdate()
@@ -77,19 +72,25 @@ public class Player : EntityBase
         {
             TakeDamage(15);
         }
-        if(Input.GetKeyDown(KeyCode.J))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             elementSpell.CastElements(gameObject, targetPos);
         }
-        if(Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            elementSpell.AddElement(ElementSpell.Element.Ground);
-            elementSpell.AddElement(ElementSpell.Element.Fire);
+            elementSpell.AddElement(Element.Fire);
         }
-        if(Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            elementSpell.AddElement(ElementSpell.Element.Water);
-            elementSpell.AddElement(ElementSpell.Element.Air);
+            elementSpell.AddElement(Element.Water);
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            elementSpell.AddElement(Element.Air);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            elementSpell.AddElement(Element.Ground);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
