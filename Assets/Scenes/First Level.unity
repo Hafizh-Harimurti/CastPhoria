@@ -383,10 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e2c945b2f083d46ab55bd8628295ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetimeMax: 0
-  moveSpeed: 0
-  owner: {fileID: 0}
   damage: 0
+  owner: {fileID: 0}
   slowDuration: 0
   slowStrength: 0
   ministunDuration: 0
@@ -825,8 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612432530f3ee7247815ee0113aff67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetimeMax: 0
-  moveSpeed: 0
+  damage: 0
   owner: {fileID: 0}
   damagePerTick: 10
   slowStrength: 1.5
@@ -8426,6 +8423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1439881604, guid: c97dd854f482e87489c29ec65457fc8c, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 1102401221}
     - target: {fileID: 4974871403078570841, guid: c97dd854f482e87489c29ec65457fc8c, type: 3}
       propertyPath: m_RootOrder
       value: 10

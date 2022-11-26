@@ -36,7 +36,7 @@ public class SpellAir : MonoBehaviour
     private void AAFSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[0];
-        ProjectileAAF spellDetail = spell.GetComponent<ProjectileAAF>();
+        SpellAAF spellDetail = spell.GetComponent<SpellAAF>();
         spellDetail.owner = caster;
         spellDetail.damage = 20 + (spellLevel-1) * 5;
         Instantiate(spell, target, Quaternion.identity);
@@ -69,7 +69,7 @@ public class SpellAir : MonoBehaviour
     private void AAGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[3];
-        ProjectileAAG spellDetail = spell.GetComponent<ProjectileAAG>();
+        SpellAAG spellDetail = spell.GetComponent<SpellAAG>();
         spellDetail.owner = caster;
         spellDetail.damage = 10 + (spellLevel - 1) * 2.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;

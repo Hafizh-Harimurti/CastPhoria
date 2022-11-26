@@ -36,7 +36,7 @@ public class SpellGround : MonoBehaviour
     private void GGFSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = groundSpells[0];
-        ProjectileGGF spellDetail = spell.GetComponent<ProjectileGGF>();
+        SpellGGF spellDetail = spell.GetComponent<SpellGGF>();
         spellDetail.owner = caster;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 20 + (spellLevel - 1) * 5;
@@ -60,7 +60,7 @@ public class SpellGround : MonoBehaviour
     private void GGASpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = groundSpells[2];
-        ProjectileGGA spellDetail = spell.GetComponent<ProjectileGGA>();
+        SpellGGA spellDetail = spell.GetComponent<SpellGGA>();
         spellDetail.owner = caster;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
@@ -75,7 +75,7 @@ public class SpellGround : MonoBehaviour
     private void GGGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = groundSpells[3];
-        ProjectileGGG spellDetail = spell.GetComponent<ProjectileGGG>();
+        SpellGGG spellDetail = spell.GetComponent<SpellGGG>();
         spellDetail.owner = caster;
         spellDetail.damage = 15 + (spellLevel - 1) * 5;
         spellDetail.stunDuration = 1.5f + (spellLevel - 1) * 0.2f;

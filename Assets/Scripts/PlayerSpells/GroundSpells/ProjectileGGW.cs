@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class ProjectileGGW : ProjectileBase
 {
@@ -28,7 +27,7 @@ public class ProjectileGGW : ProjectileBase
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject otherGameObject = collision.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile"))
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             if (otherGameObject.CompareTag("Player"))
             {

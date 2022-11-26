@@ -36,7 +36,7 @@ public class SpellGeneral : MonoBehaviour
     private void WGASpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = generalSpells[0];
-        ProjectileWGA spellDetail = spell.GetComponent<ProjectileWGA>();
+        SpellWGA spellDetail = spell.GetComponent<SpellWGA>();
         spellDetail.owner = caster;
         spellDetail.damage = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
@@ -53,7 +53,7 @@ public class SpellGeneral : MonoBehaviour
     private void GFWSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = generalSpells[2];
-        ProjectileGFW spellDetail = spell.GetComponent<ProjectileGFW>();
+        SpellGFW spellDetail = spell.GetComponent<SpellGFW>();
         spellDetail.owner = caster;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
         spellDetail.ministunDuration = 0.1f;

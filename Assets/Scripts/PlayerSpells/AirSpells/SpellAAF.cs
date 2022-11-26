@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class ProjectileAAF : ProjectileBase
+public class SpellAAF : SpellBase
 {
-    public float damage;
+    public float gatherSpeed;
 
     private bool isDamageDealt;
     private List<GameObject> entitiesHit;
@@ -17,16 +16,10 @@ public class ProjectileAAF : ProjectileBase
         isDamageDealt = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject otherGameObject = collision.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile"))
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collision.gameObject);
         }
@@ -67,7 +60,7 @@ public class ProjectileAAF : ProjectileBase
     {
         while (!isDamageDealt)
         {
-            Vector3 spellMovement = (spellCenter - otherGameObject.transform.position).normalized * moveSpeed * Time.deltaTime;
+            Vector3 spellMovement = (spellCenter - otherGameObject.transform.position).normalized * gatherSpeed * Time.deltaTime;
             if ((spellCenter - spellMovement).magnitude >= 0)
             {
                 otherGameObject.transform.position += spellMovement;

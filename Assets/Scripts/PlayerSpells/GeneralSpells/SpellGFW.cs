@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileGFW : ProjectileBase
+public class SpellGFW : SpellBase
 {
     public float damagePerTick = 10;
     public float slowStrength = 1.5f;
@@ -15,15 +15,10 @@ public class ProjectileGFW : ProjectileBase
         entitiesHit = new List<GameObject>();
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject otherGameObject = collision.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile"))
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(otherGameObject);
             StartCoroutine(DamageEntity(collision));

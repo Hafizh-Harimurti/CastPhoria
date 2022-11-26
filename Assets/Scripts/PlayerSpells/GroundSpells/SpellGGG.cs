@@ -1,33 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ProjectileAAG : ProjectileBase
+public class SpellGGG : SpellBase
 {
-    public float damage;
     public float stunDuration;
-    public float knockbackStrength;
+    public bool flipX;
 
     private List<GameObject> entitiesHit;
-    private Vector2 colliderCenter;
-    private Vector2 knockbackForce;
+
     // Start is called before the first frame update
     void Start()
     {
         entitiesHit = new List<GameObject>();
-        colliderCenter = gameObject.GetComponent<BoxCollider2D>().bounds.center;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = flipX;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject otherGameObject = collision.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile"))
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collision.gameObject);
         }
@@ -52,8 +46,6 @@ public class ProjectileAAG : ProjectileBase
             }
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-            knockbackForce = ((Vector2)otherGameObject.GetComponent<BoxCollider2D>().bounds.center - colliderCenter).normalized * knockbackStrength;
-            otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }
     }
 

@@ -2,33 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileGGA : ProjectileBase
+public class SpellGGF : SpellBase
 {
-    public float damage;
     public float stunDuration;
 
     private List<GameObject> entitiesHit;
-    private Vector2 knockbackForce;
-    private Vector3 castOrigin;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = (transform.position.x - owner.transform.position.x) < 0;
-        castOrigin = owner.transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        entitiesHit = new List<GameObject>();
+        StartCoroutine(ExplodeSpell(2));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject otherGameObject = collision.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile"))
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collision.gameObject);
         }
@@ -37,6 +27,12 @@ public class ProjectileGGA : ProjectileBase
     private void OnCollisionExit2D(Collision2D collision)
     {
         entitiesHit.Remove(collision.gameObject);
+    }
+
+    IEnumerator ExplodeSpell(float idleDuration)
+    {
+        yield return new WaitForSeconds(idleDuration);
+        //animator.SetBool("isExploding",true);
     }
 
     void DamageEntity()
@@ -54,8 +50,6 @@ public class ProjectileGGA : ProjectileBase
             }
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-            knockbackForce = (transform.position - castOrigin).normalized * 0.15f;
-            otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }
     }
 
