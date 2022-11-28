@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpellGGG : SpellBase
 {
     public float stunDuration;
-    public bool flipX;
 
     private List<GameObject> entitiesHit;
 
@@ -15,21 +14,20 @@ public class SpellGGG : SpellBase
     {
         entitiesHit = new List<GameObject>();
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = flipX;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collision.gameObject;
+        GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
     void DamageEntity()
     {

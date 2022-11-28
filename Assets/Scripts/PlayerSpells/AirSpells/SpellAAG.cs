@@ -17,18 +17,18 @@ public class SpellAAG : SpellBase
         colliderCenter = gameObject.GetComponent<BoxCollider2D>().bounds.center;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collision.gameObject;
+        GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
     void DamageEntity()
     {

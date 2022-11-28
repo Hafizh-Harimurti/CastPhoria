@@ -17,20 +17,22 @@ public class SpellWGA : SpellBase
     {
         entitiesHit = new List<GameObject>();
         castOrigin = owner.transform.position;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = (transform.position - castOrigin).x < 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collision.gameObject;
+        GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
 
     void DamageEntity()
@@ -49,7 +51,7 @@ public class SpellWGA : SpellBase
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Slow, slowDuration, slowStrength);
             entity.ApplyDebuff(Debuff.Stun, ministunDuration, 1);
-            knockbackForce = (transform.position - castOrigin).normalized * 0.15f;
+            knockbackForce = (transform.position - castOrigin).normalized * 0.2f;
             otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }
     }

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellGround : MonoBehaviour
+[CreateAssetMenu(fileName = "New Ground Spell", menuName = "Spell/Ground Spell")]
+public class SpellGround : ScriptableObject
 {
     public GameObject[] groundSpells;
 
@@ -45,46 +46,55 @@ public class SpellGround : MonoBehaviour
 
     private void GGWSpell(GameObject caster, Vector3 target, int spellLevel)
     {
+        Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[1];
-        ProjectileGGW spellDetail = spell.GetComponent<ProjectileGGW>();
+        SpellGGW spellDetail = spell.GetComponent<SpellGGW>();
         spellDetail.owner = caster;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.slowDuration = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
-        spellDetail.direction = (target - caster.transform.position).normalized;
+        spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.moveSpeed = 2.5f;
-        Instantiate(spell, caster.transform.position, Quaternion.identity);
+        Instantiate(spell, castOrigin, Quaternion.identity);
     }
 
     private void GGASpell(GameObject caster, Vector3 target, int spellLevel)
     {
+        Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[2];
         SpellGGA spellDetail = spell.GetComponent<SpellGGA>();
         spellDetail.owner = caster;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
-        Vector3 spawnSpell = Quaternion.Euler(0, 0, -60) * (target - caster.transform.position);
+        Vector3 spawnSpell = Quaternion.Euler(0, 0, -60) * (target - castOrigin);
         for (int i = 0; i < 3; i++)
         {
             spawnSpell = Quaternion.Euler(0, 0, 30) * spawnSpell;
-            Instantiate(spell, spawnSpell + caster.transform.position, Quaternion.identity);
+            Instantiate(spell, spawnSpell + castOrigin, Quaternion.identity);
         }
     }
 
     private void GGGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
+        Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[3];
         SpellGGG spellDetail = spell.GetComponent<SpellGGG>();
         spellDetail.owner = caster;
         spellDetail.damage = 15 + (spellLevel - 1) * 5;
         spellDetail.stunDuration = 1.5f + (spellLevel - 1) * 0.2f;
-        Vector3 spawnSpell = caster.transform.position;
-        Vector3 direction = (target - caster.transform.position).normalized;
+        Vector3 direction = (target - castOrigin).normalized;
         for (int i = 0; i < 7; i++)
         {
-            spawnSpell += direction/4;
-            Instantiate(spell, spawnSpell, Quaternion.identity);
+            castOrigin += direction/4;
+            Instantiate(spell, castOrigin, Quaternion.identity);
         }
+    }
+
+    private Vector3 GetCasterBottomBound(GameObject caster)
+    {
+        Vector3 casterPos = caster.transform.position;
+        casterPos.y = caster.GetComponent<BoxCollider2D>().bounds.center.y;
+        return casterPos;
     }
 }

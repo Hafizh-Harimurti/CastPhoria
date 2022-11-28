@@ -7,8 +7,13 @@ public class Player : EntityBase
     public float castRange;
     public HealthBar healthBar;
 
+    [SerializeField]
+    private GameObject spellTarget;
+
     private float moveX;
     private float moveY;
+    private float spellTargetYDiff;
+    private Vector3 castDirection;
     private ElementSpell elementSpell;
     // Start is called before the first frame update
     void Start()
@@ -16,12 +21,19 @@ public class Player : EntityBase
         OnStart();
         healthBar.SetMaxHealth(maxHealth);
         elementSpell = GetComponent<ElementSpell>();
+        spellTargetYDiff = GetComponent<BoxCollider2D>().bounds.min.y - transform.position.y;
+        targetPos = Vector3.right * castRange + transform.position;
+        targetPos.y += spellTargetYDiff;
+        spellTarget.transform.position = targetPos;
     }
 
     // Update is called once per frame
     void Update()
     {
         OnUpdate();
+        targetPos = transform.position + castRange * castDirection;
+        targetPos.y += spellTargetYDiff;
+        spellTarget.transform.position = targetPos;
         if (isActive)
         {
             DoMove();
@@ -37,7 +49,7 @@ public class Player : EntityBase
         moveY = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
-            targetPos = (Vector3.right * Input.GetAxisRaw("Horizontal") + Vector3.up * Input.GetAxisRaw("Vertical")).normalized * castRange + transform.position;
+            castDirection = (Vector3.right * Input.GetAxisRaw("Horizontal") + Vector3.up * Input.GetAxisRaw("Vertical")).normalized;
             animator.SetBool("isMoving", true);
             animator.SetBool("isAttacking", false);
         }
@@ -68,10 +80,6 @@ public class Player : EntityBase
 
     void Test()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(15);
-        }
         if(Input.GetKeyDown(KeyCode.Space))
         {
             elementSpell.CastElements(gameObject, targetPos);

@@ -16,19 +16,20 @@ public class SpellAAF : SpellBase
         isDamageDealt = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collision.gameObject;
+        GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
+
     void DamageEntity()
     {
         EntityBase entity = null;
@@ -49,7 +50,7 @@ public class SpellAAF : SpellBase
 
     void GatherEntity()
     {
-        Vector3 collisionCenter = new Vector3(transform.position.x + gameObject.GetComponent<BoxCollider2D>().size.x, transform.position.y, transform.position.z);
+        Vector3 collisionCenter = GetComponent<BoxCollider2D>().bounds.center;
         foreach (GameObject otherGameObject in entitiesHit)
         {
             StartCoroutine(MoveEntity(otherGameObject, collisionCenter));
@@ -58,10 +59,10 @@ public class SpellAAF : SpellBase
 
     IEnumerator MoveEntity(GameObject otherGameObject, Vector3 spellCenter)
     {
-        while (!isDamageDealt)
+        while (!isDamageDealt && entitiesHit.Contains(otherGameObject))
         {
-            Vector3 spellMovement = (spellCenter - otherGameObject.transform.position).normalized * gatherSpeed * Time.deltaTime;
-            if ((spellCenter - spellMovement).magnitude >= 0)
+            Vector3 spellMovement = Time.deltaTime * gatherSpeed * (spellCenter - otherGameObject.transform.position).normalized;
+            if ((spellCenter - otherGameObject.transform.position - spellMovement).magnitude > 0)
             {
                 otherGameObject.transform.position += spellMovement;
             }

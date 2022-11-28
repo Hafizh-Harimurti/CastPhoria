@@ -14,11 +14,11 @@ public abstract class EntityBase : MonoBehaviour
     public GameObject arrow;
     public GameObject target;
     public Animator animator;
+    public bool isDead;
 
     protected bool isGhost;
     protected bool isActive;
     protected bool isInvulnerable;
-    protected bool isDead;
     protected bool isStunned;
     protected float moveSpeed;
     protected float damageOverTime;

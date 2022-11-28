@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -770,7 +770,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_5: 1926571159
-      Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_19: -2104452768
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_8: -444373231
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_12: 2122134217
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_29: 1361164405
@@ -795,10 +794,11 @@ TextureImporter:
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_1: 1186225918
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_20: -1398525039
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_27: 309662913
+      Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_19: -2104452768
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_9: 1363764607
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_4: 1392304259
-      Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_26: 697287694
       Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_17: -75549962
+      Greed_CastPlayerSpell_ExplodeCoinsAndSummonEnemies_26: 697287694
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class SpellNoLife : SpellBase
 {
-    public Vector3 target;
-    public float idleDuration;
-
     private List<GameObject> entitiesHit;
     // Start is called before the first frame update
     void Start()
     {
         entitiesHit = new List<GameObject>();
-        StartCoroutine(ExplodeSpell(idleDuration));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D (Collider2D collider)
     {
-        if (true)
+        GameObject otherGameObject = collider.gameObject;
+        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D (Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
 
     void DamageEntity()
@@ -43,11 +40,5 @@ public class SpellNoLife : SpellBase
             }
             entity.TakeDamage(damage);
         }
-    }
-
-    IEnumerator ExplodeSpell(float idleDuration)
-    {
-        yield return new WaitForSeconds(idleDuration);
-        //animator.SetBool("isExploding",true);
     }
 }

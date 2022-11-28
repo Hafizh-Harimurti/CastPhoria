@@ -12,27 +12,27 @@ public class SpellGGF : SpellBase
     void Start()
     {
         entitiesHit = new List<GameObject>();
-        StartCoroutine(ExplodeSpell(2));
+        StartCoroutine(EndSpell(2));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collision.gameObject;
+        GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            entitiesHit.Add(collision.gameObject);
+            entitiesHit.Add(collider.gameObject);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collision.gameObject);
+        entitiesHit.Remove(collider.gameObject);
     }
 
-    IEnumerator ExplodeSpell(float idleDuration)
+    IEnumerator EndSpell(float lifetime)
     {
-        yield return new WaitForSeconds(idleDuration);
-        //animator.SetBool("isExploding",true);
+        yield return new WaitForSeconds(lifetime);
+        GetComponent<Animator>().SetBool("isDone", true);
     }
 
     void DamageEntity()

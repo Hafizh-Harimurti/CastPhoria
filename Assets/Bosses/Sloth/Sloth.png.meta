@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1914,18 +1914,18 @@ TextureImporter:
       Sloth_60: -2028288384
       Sloth_80: -1744841836
       Sloth_50: 224512849
-      Sloth_6: 2007060433
-      Sloth_22: 776179089
-      Sloth_41: -285159799
       Sloth_15: 705777347
+      Sloth_59: -764118154
+      Sloth_22: 776179089
+      Sloth_6: 2007060433
       Sloth_12: -346759360
       Sloth_43: 1449688710
-      Sloth_59: -764118154
       Sloth_2: -866519087
       Sloth_3: -1827479498
       Sloth_4: 2082876880
       Sloth_18: -1686734054
       Sloth_49: -873486368
+      Sloth_41: -285159799
       Sloth_37: -2039968887
       Sloth_19: -2056587327
       Sloth_26: 775710782

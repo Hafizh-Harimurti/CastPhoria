@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public float spawnXmin = -2;
+    public float spawnYmin = -2;
+    public float spawnXmax = 2;
+    public float spawnYmax = 2;
+
     [SerializeField]
-    public GameObject[] enemyObjects;
-    public float spawnXmin = 0;
-    public float spawnYmin = 0;
-    public float spawnXmax = 20;
-    public float spawnYmax = 20;
+    private GameState gameState;
+    private Vector3 spawnPos;
+    private GameObject enemySpawned;
 
-    private int enemyIndex;
-    private Vector2 spawnPos;
-    // Start is called before the first frame update
-    void Start()
+    public void SpawnEnemy(GameObject enemy)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            enemyIndex = Random.Range(0, enemyObjects.Length);
-            Instantiate(enemyObjects[0], new Vector2(Random.Range(spawnXmin, spawnXmax), Random.Range(spawnYmin, spawnYmax)), transform.rotation);
-        }
+        spawnPos = transform.position;
+        spawnPos.x += Random.Range(spawnXmin, spawnXmax);
+        spawnPos.y += Random.Range(spawnYmin, spawnYmax);
+        enemySpawned = Instantiate(enemy, spawnPos, Quaternion.identity);
+        gameState.enemiesAlive.Add(enemySpawned.GetComponent<EntityBase>());
     }
 }

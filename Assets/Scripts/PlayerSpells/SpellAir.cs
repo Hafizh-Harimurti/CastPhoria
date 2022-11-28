@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellAir : MonoBehaviour
+[CreateAssetMenu(fileName ="New Air Spell", menuName = "Spell/Air Spell")]
+public class SpellAir : ScriptableObject
 {
     public GameObject[] airSpells;
 
@@ -39,31 +40,33 @@ public class SpellAir : MonoBehaviour
         SpellAAF spellDetail = spell.GetComponent<SpellAAF>();
         spellDetail.owner = caster;
         spellDetail.damage = 20 + (spellLevel-1) * 5;
+        spellDetail.gatherSpeed = 0.2f;
         Instantiate(spell, target, Quaternion.identity);
     }
 
     private void AAWSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[1];
-        ProjectileAAW spellDetail = spell.GetComponent<ProjectileAAW>();
+        SpellAAW spellDetail = spell.GetComponent<SpellAAW>();
         spellDetail.owner = caster;
         spellDetail.target = target;
         spellDetail.moveSpeed = 1;
         spellDetail.lifetimeMax = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.damagePerTick = 3 + (spellLevel - 1) * 1;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
-        Instantiate(spell, caster.transform.position, Quaternion.identity);
+        Instantiate(spell, GetCasterBottomBound(caster), Quaternion.identity);
     }
 
     private void AAASpell(GameObject caster, Vector3 target, int spellLevel)
     {
+        Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = airSpells[2];
-        ProjectileAAA spellDetail = spell.GetComponent<ProjectileAAA>();
+        SpellAAA spellDetail = spell.GetComponent<SpellAAA>();
         spellDetail.owner = caster;
         spellDetail.moveSpeed = 1;
-        spellDetail.direction = (target - caster.transform.position).normalized;
+        spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
-        Instantiate(spell, caster.transform.position, Quaternion.identity);
+        Instantiate(spell, castOrigin, Quaternion.identity);
     }
 
     private void AAGSpell(GameObject caster, Vector3 target, int spellLevel)
@@ -73,6 +76,15 @@ public class SpellAir : MonoBehaviour
         spellDetail.owner = caster;
         spellDetail.damage = 10 + (spellLevel - 1) * 2.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;
+        float spellSize = spell.GetComponent<SpriteRenderer>().size.y;
+        target.y += spellSize/2;
         Instantiate(spell, target, Quaternion.identity);
+    }
+
+    private Vector3 GetCasterBottomBound(GameObject caster)
+    {
+        Vector3 casterPos = caster.transform.position;
+        casterPos.y = caster.GetComponent<BoxCollider2D>().bounds.min.y;
+        return casterPos;
     }
 }

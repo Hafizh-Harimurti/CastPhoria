@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellGeneral : MonoBehaviour
+[CreateAssetMenu(fileName = "New Ground Spell", menuName = "Spell/General Spell")]
+public class SpellGeneral : ScriptableObject
 {
     public GameObject[] generalSpells;
 
@@ -22,7 +23,7 @@ public class SpellGeneral : MonoBehaviour
                 }
             case Element.Air:
                 {
-                    GFWSpell(caster, target, spellLevel);
+                    FWGSpell(caster, target, spellLevel);
                     break;
                 }
             case Element.Ground:
@@ -50,10 +51,10 @@ public class SpellGeneral : MonoBehaviour
         
     }
 
-    private void GFWSpell(GameObject caster, Vector3 target, int spellLevel)
+    private void FWGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = generalSpells[2];
-        SpellGFW spellDetail = spell.GetComponent<SpellGFW>();
+        SpellFWG spellDetail = spell.GetComponent<SpellFWG>();
         spellDetail.owner = caster;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
         spellDetail.ministunDuration = 0.1f;

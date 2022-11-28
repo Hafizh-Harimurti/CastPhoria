@@ -21,37 +21,37 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 6583883b562ba6144952e3fe3acfed0f, type: 3}
-    - time: 0.06666667
+    - time: 0.06
       value: {fileID: 21300000, guid: 28d8082ce23a7e6448c0f556b2ff4822, type: 3}
-    - time: 0.13333334
+    - time: 0.12
       value: {fileID: 21300000, guid: 63488c877eecea14eabccde9bfe02861, type: 3}
-    - time: 0.2
+    - time: 0.18
       value: {fileID: 21300000, guid: 8f47906fa835a4148bb61c08adea1b03, type: 3}
-    - time: 0.25
+    - time: 0.24
       value: {fileID: 21300000, guid: 103267f4c71f22342bd3a7e29a6d4928, type: 3}
-    - time: 0.31666666
+    - time: 0.3
       value: {fileID: 21300000, guid: 3da6f0250bdc3814582374663c98cc80, type: 3}
-    - time: 0.38333333
+    - time: 0.36
       value: {fileID: 21300000, guid: 72a379c641738714bb25e66bc0c03971, type: 3}
-    - time: 0.45
+    - time: 0.42
       value: {fileID: 21300000, guid: 0d0fe405db4717d43a7fbeb1396997d2, type: 3}
-    - time: 0.51666665
+    - time: 0.48
       value: {fileID: 21300000, guid: 81f03b87574863440b306f2a8bdb53a7, type: 3}
-    - time: 0.5833333
+    - time: 0.54
       value: {fileID: 21300000, guid: cf7aa1184da383f4a96d4179043e3b8e, type: 3}
-    - time: 0.6333333
+    - time: 0.6
       value: {fileID: 21300000, guid: 6bfb808c28516dd4db89f3272c71faff, type: 3}
-    - time: 0.7
+    - time: 0.66
       value: {fileID: 21300000, guid: 235e699a610bd3440884e41ad4af0b77, type: 3}
-    - time: 0.76666665
+    - time: 0.72
       value: {fileID: 21300000, guid: b7877c287558cf1468e4e52d058cfd90, type: 3}
-    - time: 0.8333333
+    - time: 0.78
       value: {fileID: 21300000, guid: 389d14beadd17bb43bbb12bc4bc8d915, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 50
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -85,7 +85,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.84999996
+    m_StopTime: 0.84
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -104,4 +104,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.42
+    functionName: DamageEntity
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.84
+    functionName: DestroySpell
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

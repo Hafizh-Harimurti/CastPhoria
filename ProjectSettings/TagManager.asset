@@ -11,10 +11,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
-  - 
+  - Entity
   - 
   - 
   - 
@@ -47,8 +47,14 @@ TagManager:
   - name: Background
     uniqueID: 2309935857
     locked: 0
-  - name: Entities
+  - name: BackProjectileAndSpell
+    uniqueID: 2199846563
+    locked: 0
+  - name: Entity
     uniqueID: 3946855521
+    locked: 0
+  - name: FrontProjectileAndSpell
+    uniqueID: 2255695107
     locked: 0
   - name: HUD
     uniqueID: 4258818887
