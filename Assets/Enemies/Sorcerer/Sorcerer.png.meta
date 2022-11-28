@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,7 +127,1687 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sorcerer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8763741f7250b484fb5400948f94262d
+      internalID: -1258206108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 407.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b932fc09eea2f5d44a042883566ee86e
+      internalID: 1095793120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 407.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acef82a2bc226d42a08a38657bc6b6c
+      internalID: -201210267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 407.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ec604237357d448abe3b56b0f60757
+      internalID: 2156534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 407.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e81894ff700534aa351a6d090200ba
+      internalID: 2008120157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce93836f086a44548aa038cd171424c9
+      internalID: -2009106715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f217a42f211d0c418c269ad5cc1d4a1
+      internalID: -1016956672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597dddf671c6afb44b2eb2b8ce0771fe
+      internalID: -708961186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8bb6d6430865a4888c8a1145171027
+      internalID: -664211220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd24daceac9e1bb4588c997c98344ccf
+      internalID: -2145028314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c57a97398d86804696a54266fdf951e
+      internalID: -1482931188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a1325799c6c674d8d553aa7fa6e623
+      internalID: 174312344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_12
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 370.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d84c4096eb00454499dca79fbca1f20
+      internalID: -1864855770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf011a9936c71674692415382b84a9d2
+      internalID: -1824875965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_14
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87687ff02b735c64abb541186970942c
+      internalID: -555969106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6bdb66b84cb2ee4a9d316686ffc67e0
+      internalID: 976392583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_16
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef67f3f7abca84e4dbab5a68d9feba7f
+      internalID: -1222665536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_17
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a0b68a4f801e54f9bd6690ee083ea5
+      internalID: 284044165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_18
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160e6b9bed1b6494f9cf6df95ec544b5
+      internalID: -310102899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642c8a2baf4d3b241bee7ba716a9aa32
+      internalID: -437403472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_20
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12c983824d67d24087b7a50a81bc542
+      internalID: 35072410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_21
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f4f8935fa4ab3489ed031dd02eea07
+      internalID: -111459451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_22
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 333.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d737b466bd09107418a24e120779307f
+      internalID: -1146705361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec054f1daba3c004eb734e08e9c0f370
+      internalID: 1957706980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_24
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168abff1671b1dc4f8c5f3af75308235
+      internalID: -880931001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b0ebde9065c0a74494c43e2c870bcc6
+      internalID: 1278419436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd74dc697907674d878537764253735
+      internalID: 1439553412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_27
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e89f290fa1b480458e325604382597e
+      internalID: 1251071929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_28
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f2d050ab51b604e91617eab750132a
+      internalID: -2111814385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c322df303a61b04a992ce1329ef3e85
+      internalID: 172693022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_30
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83dc18d8943ccb343947948c13a91dc3
+      internalID: 960490183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_31
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf45c5627aabb147ad52aa98e1bf521
+      internalID: -846357598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_32
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 296.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc51db406a03ab46a86eecbfcecb9b9
+      internalID: -1729265506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfa4eb8bfa784e489fd98d18b8b338c
+      internalID: 1948340674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_34
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0e9fc6b1e05024f868ce9f158d8a35
+      internalID: 1457493135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_35
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21972a657b67acd4eb49fdb2bb13c465
+      internalID: -751152416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_36
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc2e8322c9f2af49ba8f6c44ca3c1a6
+      internalID: 14288239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b202c6eab050e41b4e20537ee59cd2
+      internalID: -999313400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_38
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ed4c704bc105f46861d231b39fccf1
+      internalID: -191431889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_39
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9989fb95463a8343ba363210a5c3053
+      internalID: 1588693673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_40
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129c2e8684bef75458a5da3dec297682
+      internalID: -2040304102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_41
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81570af1d52ea5d409127cd370466f67
+      internalID: -669016838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_42
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 259.91666
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d27e23728d19b499ca6637a41977ed
+      internalID: -812311981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facb82e4b8b04b04bb112e091671149d
+      internalID: 2121611062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcdf6e0a6d08044db30cad88e1bfb03
+      internalID: -1690045804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_45
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8672e42be5ca0449888a29fb0b7905
+      internalID: -702284855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_46
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68235966259a47d44adce349ccd69356
+      internalID: 1425606244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_47
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d8a10058e70794387c49d44b53eff2
+      internalID: -2104409340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_48
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32719be6127fcb648b6e86a18e42742b
+      internalID: 430268022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_49
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 185.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826b648422311834a973b806cdb0fdc3
+      internalID: 589094788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f607df17dea69fa43b834bfbdf66961a
+      internalID: 50451580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_51
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 148.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9de03e9e08e82845801af77ab0ac741
+      internalID: -334455690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_52
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 148.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c22243084da53a4693250014112d4ea
+      internalID: -1458175047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_53
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 148.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be4cf629ce9c204c858eeb784413a00
+      internalID: -1916054253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_54
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 148.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573317167c525dd4c8fd5debccc7f323
+      internalID: -1917093690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e80ea32eb9b2141bcbda1ac9fa7ae5
+      internalID: -405763424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_56
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 111.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dcd3615ea45fa4a912d8c040d34ab8
+      internalID: 1071032649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_57
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 111.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1f19d85475d034b95b33aa0b05a760
+      internalID: -118407344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_58
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 111.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48e6c81a9ec5654b869d81e72f820c9
+      internalID: 1997022704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_59
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 111.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8fb0c521649684db49ef780ceeebac
+      internalID: -1395311943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0efdeb6397e4b4d8862f40bbf1a500
+      internalID: 1363959983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_61
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 74.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c7dfd971c407b4fab6a3525537adf8
+      internalID: 1590200455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_62
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 74.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0662a69a3ce73ef4fbd09850a44084f6
+      internalID: -647706670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_63
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 74.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df02c75c4e49fd429d5815603e228e7
+      internalID: -12853848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_64
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 74.91667
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a2c83ac5ac7bd45b3c5a235139a5fb
+      internalID: 609335260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6b3fb212451eb46aeb9001db53bc56
+      internalID: -608767420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_66
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da42a3ad6eede748b8c52434c8663b9
+      internalID: 1069140922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_67
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ebb83e583f9bf40b28d2dea787f43e
+      internalID: 1206210613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_68
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c315da30912836141b26436ad3fa1782
+      internalID: 597650589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_69
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2fc3bb226c84942876df76eaa419d6
+      internalID: 1409626390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_70
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad56e2e808aba0498bfce0c53ac2b8a
+      internalID: -1173803140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_71
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 37.916668
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd283021fc48e04c923ca4b9963f359
+      internalID: 156172577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8075f08d3b9256044b2c8659bcbc9da8
+      internalID: -1631606172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_73
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212ee4eaed0883a4fad362e67baeaded
+      internalID: -1843537992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_74
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ec7811c4ceae54faa93f6095a37571
+      internalID: -1812869025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_75
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b98364f205de84f8708cdf4481b579
+      internalID: -16719608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_76
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c04199d925f204e9a5f0275b61462a
+      internalID: 404749888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_77
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2246290ada4c964b9e4a560451a7600
+      internalID: 1607041718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_78
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0984f6a04b21c94387b7eeb5c8e63bc
+      internalID: -1901654843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sorcerer_79
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0.91666794
+        width: 50
+        height: 37.083332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1eb8caa3b818347bd74fe6115e2d43
+      internalID: -1736418117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +1818,87 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sorcerer_49: 589094788
+      Sorcerer_25: 1278419436
+      Sorcerer_0: -1258206108
+      Sorcerer_12: -1864855770
+      Sorcerer_16: -1222665536
+      Sorcerer_18: -310102899
+      Sorcerer_56: 1071032649
+      Sorcerer_27: 1251071929
+      Sorcerer_71: 156172577
+      Sorcerer_3: 2156534
+      Sorcerer_17: 284044165
+      Sorcerer_78: -1901654843
+      Sorcerer_39: 1588693673
+      Sorcerer_45: -702284855
+      Sorcerer_72: -1631606172
+      Sorcerer_14: -555969106
+      Sorcerer_9: -2145028314
+      Sorcerer_8: -664211220
+      Sorcerer_33: 1948340674
+      Sorcerer_15: 976392583
+      Sorcerer_31: -846357598
+      Sorcerer_36: 14288239
+      Sorcerer_42: -812311981
+      Sorcerer_32: -1729265506
+      Sorcerer_54: -1917093690
+      Sorcerer_21: -111459451
+      Sorcerer_48: 430268022
+      Sorcerer_52: -1458175047
+      Sorcerer_70: -1173803140
+      Sorcerer_22: -1146705361
+      Sorcerer_68: 597650589
+      Sorcerer_57: -118407344
+      Sorcerer_29: 172693022
+      Sorcerer_53: -1916054253
+      Sorcerer_5: -2009106715
+      Sorcerer_43: 2121611062
+      Sorcerer_59: -1395311943
+      Sorcerer_75: -16719608
+      Sorcerer_30: 960490183
+      Sorcerer_69: 1409626390
+      Sorcerer_76: 404749888
+      Sorcerer_51: -334455690
+      Sorcerer_46: 1425606244
+      Sorcerer_41: -669016838
+      Sorcerer_2: -201210267
+      Sorcerer_40: -2040304102
+      Sorcerer_13: -1824875965
+      Sorcerer_24: -880931001
+      Sorcerer_28: -2111814385
+      Sorcerer_19: -437403472
+      Sorcerer_10: -1482931188
+      Sorcerer_11: 174312344
+      Sorcerer_20: 35072410
+      Sorcerer_26: 1439553412
+      Sorcerer_63: -12853848
+      Sorcerer_38: -191431889
+      Sorcerer_50: 50451580
+      Sorcerer_74: -1812869025
+      Sorcerer_60: 1363959983
+      Sorcerer_44: -1690045804
+      Sorcerer_47: -2104409340
+      Sorcerer_61: 1590200455
+      Sorcerer_77: 1607041718
+      Sorcerer_35: -751152416
+      Sorcerer_7: -708961186
+      Sorcerer_79: -1736418117
+      Sorcerer_64: 609335260
+      Sorcerer_55: -405763424
+      Sorcerer_62: -647706670
+      Sorcerer_66: 1069140922
+      Sorcerer_58: 1997022704
+      Sorcerer_1: 1095793120
+      Sorcerer_65: -608767420
+      Sorcerer_34: 1457493135
+      Sorcerer_73: -1843537992
+      Sorcerer_6: -1016956672
+      Sorcerer_67: 1206210613
+      Sorcerer_4: 2008120157
+      Sorcerer_23: 1957706980
+      Sorcerer_37: -999313400
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
