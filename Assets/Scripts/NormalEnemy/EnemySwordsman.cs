@@ -9,6 +9,7 @@ public class EnemySwordsman : EntityBase
     public float speed;
     private Transform target;
     private Animator anim;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
@@ -33,6 +34,13 @@ public class EnemySwordsman : EntityBase
         }
         
     }
+    //private void OnCollisionStay2D(Collision2D other)
+    //{
+    //    if(other.gameObject.tag == "Player")
+    //    {
+    //        other.gameObject.GetComponent<PlayerHealth>().UpdateHeatlh(-attackDamage);
+    //    }
+    //}
     void enemyAttack(bool attacking)
     {
         anim.SetBool("isAttacking", attacking);
