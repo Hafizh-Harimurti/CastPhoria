@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2710622108148685654}
   - component: {fileID: 4231303227339755888}
   - component: {fileID: 607302033483047845}
+  - component: {fileID: -700197422242251889}
   m_Layer: 0
   m_Name: EnemySorcerer
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -348111775
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1258206108, guid: 512fdb24605267545ac6f7580b708647, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,3 +106,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-700197422242251889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123175724082667971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ae697d09bb13a468fbb5e7004bfeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  normalMoveSpeed: 1
+  debuffActivationTimer: 1
+  targetPos: {x: 0, y: 0, z: 0}
+  isDead: 0
+  speed: 0.5

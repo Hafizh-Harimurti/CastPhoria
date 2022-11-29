@@ -6,41 +6,43 @@ using UnityEngine;
 public class EnemySwordsman : EntityBase
 {
     // Start is called before the first frame update
+    public float speed;
+    private Transform target;
+    private Animator anim;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            target = other.transform;
+        }
+    }
     void Start()
     {
-        OnStart();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anim.SetBool("isIdle", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        OnUpdate();
-        targetPos = target.transform.position;
-        Move();
-    }
-
-    private void LateUpdate()
-    {
-        OnLateUpdate();
-    }
-
-    void Move()
-    {
-        relativePos = targetPos - transform.position;
-        if (relativePos.x < 0)
+        
+        if (Vector2.Distance(transform.position, target.position) > 0.2)
         {
-            spriteRenderer.flipX = true;
-        }
-        else if (relativePos.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-    }
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-    void Attack()
+        }
+        
+    }
+    void enemyAttack(bool attacking)
     {
-        float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
-        Instantiate(arrow, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
-        animator.SetBool("isAttacking", false);
+        anim.SetBool("isAttacking", attacking);
+    }
+    void enemyIdle(bool idling)
+    {
+        anim.SetBool("isIdle", idling);
+    }
+    void enemyRun(bool running)
+    {
+        anim.SetBool("isRunning", running);
     }
 }
