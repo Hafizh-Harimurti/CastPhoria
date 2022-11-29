@@ -17,15 +17,10 @@ public class SpellAAG : SpellBase
         colliderCenter = gameObject.GetComponent<BoxCollider2D>().bounds.center;
     }
 
-    private void Update()
-    {
-        if (owner == null) Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
         }

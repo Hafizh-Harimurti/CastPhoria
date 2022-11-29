@@ -23,7 +23,6 @@ public class SpellAAW : SpellBase
 
     void Update()
     {
-        if (owner == null) Destroy(gameObject);
         spellMovement = Time.deltaTime * moveSpeed *direction;
         if ((target - gameObject.transform.position - spellMovement).sqrMagnitude > 0.005)
         {
@@ -46,7 +45,7 @@ public class SpellAAW : SpellBase
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
             StartCoroutine(DamageEntity(collider));

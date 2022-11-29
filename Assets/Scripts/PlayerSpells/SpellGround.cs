@@ -40,7 +40,8 @@ public class SpellGround : ScriptableObject
     {
         GameObject spell = groundSpells[0];
         SpellGGF spellDetail = spell.GetComponent<SpellGGF>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 20 + (spellLevel - 1) * 5;
         Instantiate(spell, target, Quaternion.identity);
@@ -53,7 +54,8 @@ public class SpellGround : ScriptableObject
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[1];
         SpellGGW spellDetail = spell.GetComponent<SpellGGW>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.slowDuration = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
@@ -69,7 +71,8 @@ public class SpellGround : ScriptableObject
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[2];
         SpellGGA spellDetail = spell.GetComponent<SpellGGA>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
         Vector3 spawnSpell = Quaternion.Euler(0, 0, -60) * (target - castOrigin);
@@ -86,7 +89,8 @@ public class SpellGround : ScriptableObject
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[3];
         SpellGGG spellDetail = spell.GetComponent<SpellGGG>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 15 + (spellLevel - 1) * 5;
         spellDetail.stunDuration = 1.5f + (spellLevel - 1) * 0.2f;
         Vector3 direction = (target - castOrigin).normalized;

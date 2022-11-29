@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileArrow : ProjectileBase
 {
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,17 @@ public class ProjectileArrow : ProjectileBase
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime * moveSpeed;
+        transform.position += Time.deltaTime * moveSpeed * transform.right;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject otherGameObject = collider.gameObject;
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        {
+            EntityBase otherEntity = otherGameObject.GetComponent<EntityBase>();
+            otherEntity.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

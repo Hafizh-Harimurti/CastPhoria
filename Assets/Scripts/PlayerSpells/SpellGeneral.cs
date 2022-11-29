@@ -6,15 +6,15 @@ using UnityEngine;
 public class SpellGeneral : ScriptableObject
 {
     public GameObject[] generalSpells;
+    public float[] spellCooldowns;
 
-    public void CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
+    public float CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
     {
         switch (element)
         {
             case Element.Fire:
                 {
-                    WGASpell(caster, target, spellLevel);
-                    break;
+                    return WGASpell(caster, target, spellLevel);
                 }
             case Element.Water:
                 {
@@ -23,8 +23,7 @@ public class SpellGeneral : ScriptableObject
                 }
             case Element.Air:
                 {
-                    FWGSpell(caster, target, spellLevel);
-                    break;
+                    return FWGSpell(caster, target, spellLevel);
                 }
             case Element.Ground:
                 {
@@ -32,18 +31,21 @@ public class SpellGeneral : ScriptableObject
                     break;
                 }
         }
+        return 0.0f;
     }
 
-    private void WGASpell(GameObject caster, Vector3 target, int spellLevel)
+    private float WGASpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = generalSpells[0];
         SpellWGA spellDetail = spell.GetComponent<SpellWGA>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         spellDetail.ministunDuration = 0.1f;
         Instantiate(spell, target, Quaternion.identity);
+        return spellCooldowns[0];
     }
 
     private void FGASpell(GameObject caster, Vector3 target, int spellLevel)
@@ -51,15 +53,17 @@ public class SpellGeneral : ScriptableObject
         
     }
 
-    private void FWGSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float FWGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = generalSpells[2];
         SpellFWG spellDetail = spell.GetComponent<SpellFWG>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
         spellDetail.ministunDuration = 0.1f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         Instantiate(spell, target, Quaternion.identity);
+        return spellCooldowns[2];
     }
 
     private void AFWSpell(GameObject caster, Vector3 target, int spellLevel)

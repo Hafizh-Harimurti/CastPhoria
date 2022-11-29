@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ProjectileFireball : ProjectileBase
 {
-    // Start is called before the first frame update
+    public float damage;
+    public Vector3 direction;
     void Start()
     {
         Destroy(gameObject, lifetimeMax);
@@ -13,6 +14,17 @@ public class ProjectileFireball : ProjectileBase
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime * moveSpeed;
+        transform.position += Time.deltaTime * moveSpeed * direction;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject otherGameObject = collider.gameObject;
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        {
+            EntityBase otherEntity = otherGameObject.GetComponent<EntityBase>();
+            otherEntity.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

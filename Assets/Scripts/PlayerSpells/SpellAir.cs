@@ -36,7 +36,8 @@ public class SpellAir : ScriptableObject
     {
         GameObject spell = airSpells[0];
         SpellAAF spellDetail = spell.GetComponent<SpellAAF>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 20 + (spellLevel-1) * 5;
         spellDetail.gatherSpeed = 0.2f;
         Instantiate(spell, target, Quaternion.identity);
@@ -47,7 +48,8 @@ public class SpellAir : ScriptableObject
     {
         GameObject spell = airSpells[1];
         SpellAAW spellDetail = spell.GetComponent<SpellAAW>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.target = target;
         spellDetail.moveSpeed = 1;
         spellDetail.lifetimeMax = 3 + (spellLevel - 1) * 0.5f;
@@ -62,7 +64,8 @@ public class SpellAir : ScriptableObject
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = airSpells[2];
         SpellAAA spellDetail = spell.GetComponent<SpellAAA>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.moveSpeed = 1;
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
@@ -74,7 +77,8 @@ public class SpellAir : ScriptableObject
     {
         GameObject spell = airSpells[3];
         SpellAAG spellDetail = spell.GetComponent<SpellAAG>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 10 + (spellLevel - 1) * 2.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;
         float spellSize = spell.GetComponent<SpriteRenderer>().size.y;

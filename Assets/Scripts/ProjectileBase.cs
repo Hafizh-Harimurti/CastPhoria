@@ -6,5 +6,5 @@ public abstract class ProjectileBase : MonoBehaviour
 {
     public float lifetimeMax;
     public float moveSpeed;
-    public GameObject owner;
+    public string ownerTag;
 }

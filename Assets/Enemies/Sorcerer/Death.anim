@@ -21,21 +21,21 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -1631606172, guid: 512fdb24605267545ac6f7580b708647, type: 3}
-    - time: 0.083333336
+    - time: 0.125
       value: {fileID: -1843537992, guid: 512fdb24605267545ac6f7580b708647, type: 3}
-    - time: 0.16666667
+    - time: 0.225
       value: {fileID: -1812869025, guid: 512fdb24605267545ac6f7580b708647, type: 3}
-    - time: 0.25
+    - time: 0.35
       value: {fileID: -16719608, guid: 512fdb24605267545ac6f7580b708647, type: 3}
-    - time: 0.33333334
+    - time: 0.475
       value: {fileID: 404749888, guid: 512fdb24605267545ac6f7580b708647, type: 3}
-    - time: 0.41666666
+    - time: 0.6
       value: {fileID: 1607041718, guid: 512fdb24605267545ac6f7580b708647, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 40
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -61,12 +61,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.725
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -80,4 +80,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.725
+    functionName: KillEntity
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

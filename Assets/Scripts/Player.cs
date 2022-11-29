@@ -6,6 +6,7 @@ public class Player : EntityBase
 {
     public float castRange;
     public HealthBar healthBar;
+    public GameState gameState;
 
     [SerializeField]
     private GameObject spellTarget;
@@ -23,8 +24,9 @@ public class Player : EntityBase
         elementSpell = GetComponent<ElementSpell>();
         spellTargetYDiff = GetComponent<BoxCollider2D>().bounds.min.y - transform.position.y;
         targetPos = Vector3.right * castRange + transform.position;
-        targetPos.y += spellTargetYDiff;
+        targetPos.y += spellTargetYDiff/2;
         spellTarget.transform.position = targetPos;
+        SetAsSpawned();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class Player : EntityBase
         {
             DoMove();
         }
-        Test();
+        PlayerInput();
         HealthUpdate();
     }
 
@@ -50,7 +52,6 @@ public class Player : EntityBase
         {
             castDirection = (Vector3.right * Input.GetAxisRaw("Horizontal") + Vector3.up * Input.GetAxisRaw("Vertical")).normalized;
             animator.SetBool("isMoving", true);
-            animator.SetBool("isAttacking", false);
         }
         else
         {
@@ -77,7 +78,7 @@ public class Player : EntityBase
         Debug.Log(other.gameObject.name);
     }
 
-    void Test()
+    void PlayerInput()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -99,15 +100,9 @@ public class Player : EntityBase
         {
             elementSpell.AddElement(Element.Ground);
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            animator.SetBool("isDead", true);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ApplyDebuff(Debuff.Slow, 20, 2);
-            ApplyDebuff(Debuff.Stun, 1, 1);
-            ApplyDebuff(Debuff.Burn, 5, 2);
-        }
+    }
+    void GameOverLose()
+    {
+        gameState.GameOver(false);
     }
 }

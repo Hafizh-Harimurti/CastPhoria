@@ -20,19 +20,18 @@ public class SpellNoEscape : SpellBase
     // Update is called once per frame
     void Update()
     {
-        if (owner == null) Destroy(gameObject);
         transform.position += Time.deltaTime * moveSpeed * direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             EntityBase otherEntity = otherGameObject.GetComponent<EntityBase>();
+            otherEntity.TakeDamage(damage);
             otherEntity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
             otherEntity.ApplyDebuff(Debuff.Slow, slowDuration, slowStrength);
-
             animator.SetBool("isDone", true);
         }
     }

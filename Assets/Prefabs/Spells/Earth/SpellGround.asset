@@ -17,3 +17,8 @@ MonoBehaviour:
   - {fileID: 6424389030462996074, guid: 01969e4ba97f7c44f8710cfc03fba2df, type: 3}
   - {fileID: 8676364117143384539, guid: 97dd607afb61a0d41bc13a9894aecde5, type: 3}
   - {fileID: 5947277393270567355, guid: f28f9739525af6341b8b45ab9a593eba, type: 3}
+  spellCooldowns:
+  - 5
+  - 5
+  - 5
+  - 5

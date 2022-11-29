@@ -56,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 entity.isDead = true;
             }
+            gameState.GameOver(true);
         }
         else if (gameState.enemiesLeft  <= 0)
         {
