@@ -9,18 +9,27 @@ public class EnemySorcerer : EntityBase
     private GameObject target;
     public GameState gameState;
     // Start is called before the first frame update
+    public float speed;
+    private Transform target;
+    private Animator anim;
+
     void Start()
     {
-        OnStart();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
         OnUpdate();
         targetPos = target.transform.position;
         Move();
+    }
+
+    private void LateUpdate()
+    {
+        OnLateUpdate();
     }
 
     void Move()
@@ -38,15 +47,8 @@ public class EnemySorcerer : EntityBase
 
     void Attack()
     {
-        fireball.GetComponent<ProjectileFireball>().ownerTag = gameObject.tag;
-        fireball.GetComponent<ProjectileFireball>().direction = (targetPos - transform.position).normalized;
-        Instantiate(fireball, transform.position, Quaternion.identity);
+        float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
+        Instantiate(fireball, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
         animator.SetBool("isAttacking", false);
-    }
-
-    private void OnDestroy()
-    {
-        gameState.enemiesAlive.Remove(this);
-        gameState.enemiesLeft--;
     }
 }
