@@ -10,12 +10,12 @@ public class EnemySorcerer : EntityBase
     public GameState gameState;
     // Start is called before the first frame update
     public float speed;
-    private Transform target;
+    private Transform targetTransform;
     private Animator anim;
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         
     }
 
@@ -25,11 +25,6 @@ public class EnemySorcerer : EntityBase
         OnUpdate();
         targetPos = target.transform.position;
         Move();
-    }
-
-    private void LateUpdate()
-    {
-        OnLateUpdate();
     }
 
     void Move()

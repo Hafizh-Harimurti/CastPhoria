@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellWWF : SpellBase
+public class SpellFFW : SpellBase
 {
     public float stunDuration;
 
@@ -15,19 +15,14 @@ public class SpellWWF : SpellBase
     {
         entitiesHit = new List<GameObject>();
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = (transform.position.x - owner.transform.position.x) < 0;
-        castOrigin = owner.transform.position;
-    }
-
-    private void Update()
-    {
-        if (owner == null) Destroy(gameObject);
+        spriteRenderer.flipX = (transform.position.x - ownerPos.x) < 0;
+        castOrigin = ownerPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
         }
@@ -46,7 +41,7 @@ public class SpellWWF : SpellBase
             Debug.Log(otherGameObject.name);
             entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
-            entity.ApplyDebuff(Debuff.Stun, stunDuration, 0.2);
+            entity.ApplyDebuff(Debuff.Stun, stunDuration, 0.2f);
             knockbackForce = (transform.position - castOrigin).normalized * 0.8f;
             otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }

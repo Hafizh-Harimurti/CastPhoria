@@ -16,15 +16,10 @@ public class SpellWWG : SpellBase
         StartCoroutine(EndSpell(2));
     }
 
-    private void Update()
-    {
-        if (owner == null) Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
         }
@@ -49,7 +44,7 @@ public class SpellWWG : SpellBase
             entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-            knockbackForce = (transform.position - castOrigin).normalized * 0.2f;
+            knockbackForce = (transform.position - ownerPos).normalized * 0.2f;
         }
     }
 

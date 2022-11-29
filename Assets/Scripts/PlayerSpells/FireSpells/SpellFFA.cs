@@ -15,19 +15,14 @@ public class SpellFFA : SpellBase
     {
         entitiesHit = new List<GameObject>();
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = (transform.position.x - owner.transform.position.x) < 0;
-        castOrigin = owner.transform.position;
-    }
-
-    private void Update()
-    {
-        if (owner == null) Destroy(gameObject);
+        spriteRenderer.flipX = (transform.position.x - ownerPos.x) < 0;
+        castOrigin = ownerPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
         }
