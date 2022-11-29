@@ -1,5 +1,5 @@
 # CastPhoria
 
-##Anggota Kelompok
+## Anggota Kelompok
 Aditya Yusuf
 Hafizh Aradhana Harimurti
