@@ -7,6 +7,7 @@ public class Player : EntityBase
     public float castRange;
     public HealthBar healthBar;
     public GameState gameState;
+    public float healTimer = 2;
 
     [SerializeField]
     private GameObject spellTarget;
@@ -16,10 +17,13 @@ public class Player : EntityBase
     private float spellTargetYDiff;
     private Vector3 castDirection;
     private ElementSpell elementSpell;
+    private float lastHealth;
+    private float healTimerCurrent;
     // Start is called before the first frame update
     void Start()
     {
         OnStart();
+        healTimerCurrent = 0;
         healthBar.SetMaxHealth(maxHealth);
         elementSpell = GetComponent<ElementSpell>();
         spellTargetYDiff = GetComponent<BoxCollider2D>().bounds.min.y - transform.position.y;
@@ -40,6 +44,19 @@ public class Player : EntityBase
         {
             DoMove();
         }
+        if (lastHealth == health)
+        {
+            healTimerCurrent += Time.deltaTime;
+        }
+        else
+        {
+            healTimerCurrent = 0;
+        }
+        if (healTimerCurrent >= healTimer && health <= maxHealth)
+        {
+            health += 0.5f;
+        }
+        lastHealth = health;
         PlayerInput();
         HealthUpdate();
     }

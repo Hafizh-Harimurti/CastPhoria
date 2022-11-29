@@ -101,14 +101,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 50
   normalMoveSpeed: 2
   debuffActivationTimer: 0
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
+  speed: 1
   projectile: {fileID: 4679663405919648988, guid: 13254f550c431f247a398d1a059a57e4, type: 3}
   target: {fileID: 8573529820924502820, guid: 16b7cb39d70886341b060b0f28dda6a2, type: 3}
   gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
+  attackTimer: 5
 --- !u!95 &8479624078258452130
 Animator:
   serializedVersion: 4

@@ -8,23 +8,59 @@ public class EnemySorcerer : EntityBase
 
     // Start is called before the first frame update
     public float speed;
-    private Transform target;
-    private Animator anim;
+    private Transform targetTransform;
+    private float relativePosX;
+
+    public GameState gameState;
+    public GameObject fireball;
+    public float attackTimer = 5;
+    private float attackTimerCurrent;
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
+        OnStart();
+        targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        attackTimerCurrent = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) > 1)
+        if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+            animator.SetBool("isMoving", true);
         }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+        relativePosX = targetTransform.position.x - transform.position.x;
+
+        spriteRenderer.flipX = relativePosX < 0;
+
+        attackTimerCurrent += Time.deltaTime;
+        if(attackTimerCurrent >= attackTimer)
+        {
+            animator.SetBool("isAttacking", true);
+            attackTimerCurrent = 0;
+        }
+        CheckDeath();
     }
 
-   
+    void Attack()
+    {
+        fireball.GetComponent<ProjectileFireball>().ownerTag = gameObject.tag;
+        fireball.GetComponent<ProjectileFireball>().direction = (targetTransform.position - transform.position).normalized;
+        Instantiate(fireball, transform.position, Quaternion.identity);
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void OnDestroy()
+    {
+        gameState.enemiesAlive.Remove(this);
+        gameState.enemiesLeft--;
+    }
+
+
 }

@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class EnemyRanged : EntityBase
 {
+    public float speed;
     public GameObject projectile;
     public GameObject target;
     public GameState gameState;
+    private Transform targetTransform;
+
+    public float attackTimer = 5;
+    private float attackTimerCurrent;
+    private float relativePosX;
     // Start is called before the first frame update
     void Start()
     {
+        targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        attackTimerCurrent = 0;
         OnStart();
     }
 
@@ -19,25 +27,35 @@ public class EnemyRanged : EntityBase
     {
         if (target == null) target = GameObject.FindGameObjectWithTag("Player");
         OnUpdate();
-        targetPos = target.transform.position;
+        attackTimerCurrent += Time.deltaTime;
+        if (attackTimerCurrent >= attackTimer)
+        {
+            animator.SetBool("isAttacking", true);
+            attackTimerCurrent = 0;
+        }
         Move();
     }
 
     void Move()
     {
-        relativePos = targetPos - transform.position;
-        if (relativePos.x < 0)
+        if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
         {
-            spriteRenderer.flipX = true;
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+            animator.SetBool("isMoving", true);
         }
-        else if (relativePos.x > 0)
+        else
         {
-            spriteRenderer.flipX = false;
+            animator.SetBool("isMoving", false);
         }
+        relativePos = targetTransform.position - transform.position;
+        relativePosX = relativePos.x;
+
+        spriteRenderer.flipX = relativePosX < 0;
     }
 
     void Attack()
     {
+
         projectile.GetComponent<ProjectileArrow>().ownerTag = gameObject.tag;
         float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
         Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));

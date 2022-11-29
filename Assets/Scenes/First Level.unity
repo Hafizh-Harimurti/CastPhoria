@@ -1107,13 +1107,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1138996689}
     - target: {fileID: 3100167453539464390, guid: 7085d16b430569a418df9c50443125d1, type: 3}
-      propertyPath: spellFailcast
-      value: 
-      objectReference: {fileID: 11400000, guid: 81f5399d36f4c8348a4cae5ffbac3ae5, type: 2}
-    - target: {fileID: 3100167453539464390, guid: 7085d16b430569a418df9c50443125d1, type: 3}
       propertyPath: cooldownNotification
       value: 
       objectReference: {fileID: 1069768853}
+    - target: {fileID: 4899269505085521589, guid: 7085d16b430569a418df9c50443125d1, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
+    - target: {fileID: 4899269505085521589, guid: 7085d16b430569a418df9c50443125d1, type: 3}
+      propertyPath: healTimer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4899269505085521589, guid: 7085d16b430569a418df9c50443125d1, type: 3}
       propertyPath: healthBar
       value: 
@@ -1164,14 +1168,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6403998068026434755, guid: 7085d16b430569a418df9c50443125d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6403998068026434756, guid: 7085d16b430569a418df9c50443125d1, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6403998068026434756, guid: 7085d16b430569a418df9c50443125d1, type: 3}
-      propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6403998068026434758, guid: 7085d16b430569a418df9c50443125d1, type: 3}
@@ -58802,23 +58798,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Normal Wave 1
-    enemies:
-    - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
-    - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}
-    amounts: 0200000002000000
-    spawnRate: 1.5
-  - name: Normal Wave 2
-    enemies:
-    - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
-    - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}
-    amounts: 0300000003000000
-    spawnRate: 1.25
   - name: Boss Wave
     enemies:
     - {fileID: 7062480375559944615, guid: b7b8f9599cb7e564da181207af763473, type: 3}
     amounts: 01000000
     spawnRate: 1
+  - name: Normal Wave 1
+    enemies:
+    - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
+    - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}
+    amounts: 0100000001000000
+    spawnRate: 1.5
+  - name: Normal Wave 2
+    enemies:
+    - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
+    - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}
+    amounts: 0100000001000000
+    spawnRate: 1.25
   gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
   bossBar: {fileID: 549888232}
   spawnLocations:

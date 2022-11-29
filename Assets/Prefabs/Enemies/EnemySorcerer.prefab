@@ -168,9 +168,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 50
   normalMoveSpeed: 1
   debuffActivationTimer: 1
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
   speed: 0.5
+  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
+  fireball: {fileID: 6536136271043296621, guid: cef08a1ba73d5414b8525e1f4313d416, type: 3}
+  attackTimer: 5
