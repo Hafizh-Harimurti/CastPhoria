@@ -17,6 +17,7 @@ public class EnemyRanged : EntityBase
     // Update is called once per frame
     void Update()
     {
+        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
         OnUpdate();
         targetPos = target.transform.position;
         Move();
@@ -37,6 +38,7 @@ public class EnemyRanged : EntityBase
 
     void Attack()
     {
+        projectile.GetComponent<ProjectileArrow>().ownerTag = gameObject.tag;
         float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
         Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
         animator.SetBool("isAttacking", false);

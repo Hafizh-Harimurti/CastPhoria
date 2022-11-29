@@ -22,7 +22,6 @@ public class SpellAAA : SpellBase
     // Update is called once per frame
     void Update()
     {
-        if (owner == null) Destroy(gameObject);
         spellMovement = Time.deltaTime *moveSpeed * direction;
         gameObject.transform.position += spellMovement;
         foreach (GameObject entity in entitiesHit)
@@ -34,7 +33,7 @@ public class SpellAAA : SpellBase
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
             StartCoroutine(DamageEntity(collider));

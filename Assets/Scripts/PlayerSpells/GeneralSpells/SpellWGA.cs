@@ -16,20 +16,15 @@ public class SpellWGA : SpellBase
     void Start()
     {
         entitiesHit = new List<GameObject>();
-        castOrigin = owner.transform.position;
+        castOrigin = ownerPos;
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = (transform.position - castOrigin).x < 0;
-    }
-
-    private void Update()
-    {
-        if (owner == null) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
         }

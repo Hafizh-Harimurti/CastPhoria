@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemySorcerer : EntityBase
 {
+    public GameObject fireball;
+    private GameObject target;
+    public GameState gameState;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +17,10 @@ public class EnemySorcerer : EntityBase
     // Update is called once per frame
     void Update()
     {
+        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
         OnUpdate();
         targetPos = target.transform.position;
         Move();
-    }
-
-    private void LateUpdate()
-    {
-        OnLateUpdate();
     }
 
     void Move()
@@ -39,8 +38,15 @@ public class EnemySorcerer : EntityBase
 
     void Attack()
     {
-        float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
-        Instantiate(fireball, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        fireball.GetComponent<ProjectileFireball>().ownerTag = gameObject.tag;
+        fireball.GetComponent<ProjectileFireball>().direction = (targetPos - transform.position).normalized;
+        Instantiate(fireball, transform.position, Quaternion.identity);
         animator.SetBool("isAttacking", false);
+    }
+
+    private void OnDestroy()
+    {
+        gameState.enemiesAlive.Remove(this);
+        gameState.enemiesLeft--;
     }
 }

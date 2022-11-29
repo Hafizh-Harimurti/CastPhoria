@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6518790777586285537}
   m_Layer: 0
   m_Name: SlothNoFriends
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,3 +53,4 @@ MonoBehaviour:
   spawnYMax: 1
   enemies:
   - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
+  - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}

@@ -11,7 +11,8 @@ public class SpellSloth : ScriptableObject
     {
         GameObject spell = slothSpells[0];
         SpellNoLife spellDetail = spell.GetComponent<SpellNoLife>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 60;
         Instantiate(spell, target, Quaternion.identity);
     }
@@ -21,7 +22,8 @@ public class SpellSloth : ScriptableObject
         Vector3 casterCenter = caster.GetComponent<BoxCollider2D>().bounds.center;
         GameObject spell = slothSpells[1];
         SpellNoEscape spellDetail = spell.GetComponent<SpellNoEscape>();
-        spellDetail.owner = caster;
+        spellDetail.ownerTag = caster.tag;
+        spellDetail.ownerPos = caster.transform.position;
         spellDetail.direction = target - caster.GetComponent<BoxCollider2D>().bounds.center;
         spellDetail.moveSpeed = 1.5f;
         spellDetail.damage = 20;

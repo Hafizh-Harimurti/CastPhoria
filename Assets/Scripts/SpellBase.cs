@@ -5,5 +5,6 @@ using UnityEngine;
 public abstract class SpellBase : MonoBehaviour
 {
     public float damage;
-    public GameObject owner;
+    public string ownerTag;
+    public Vector3 ownerPos;
 }

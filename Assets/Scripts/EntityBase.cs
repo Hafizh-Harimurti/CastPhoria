@@ -26,6 +26,7 @@ public abstract class EntityBase : MonoBehaviour
     protected List<DebuffInfo> removedDebuffs;
     protected SpriteRenderer spriteRenderer;
 
+    private bool justStunned;
     private bool isDebuffCoroutineOn;
     private Coroutine applyContinuousDebuff;
 
@@ -45,15 +46,18 @@ public abstract class EntityBase : MonoBehaviour
     protected void OnUpdate()
     {
         DebuffEffect();
-        if (!isStunned && previousAnimatorSpeed != 0)
+        if (isStunned)
         {
-            animator.speed = previousAnimatorSpeed;
-            previousAnimatorSpeed = 0;
-        }
-        else if (isStunned && previousAnimatorSpeed == 0)
-        {
-            previousAnimatorSpeed = animator.speed;
             animator.speed = 0;
+        }
+        else
+        {
+            animator.speed = 1;
+        }
+        if (justStunned)
+        {
+            justStunned = false;
+            StartCoroutine(DisplayStunned());
         }
         CheckDeath();
     }
@@ -77,6 +81,7 @@ public abstract class EntityBase : MonoBehaviour
 
     protected void ResetDebuff()
     {
+        justStunned = false;
         debuffs = new List<DebuffInfo>();
         removedDebuffs = new List<DebuffInfo>();
         isDebuffCoroutineOn = false;
@@ -120,6 +125,7 @@ public abstract class EntityBase : MonoBehaviour
                 {
                     isActive = false;
                     isStunned = true;
+                    justStunned = true;
                     break;
                 }
         }
@@ -129,6 +135,18 @@ public abstract class EntityBase : MonoBehaviour
         }
     }
 
+    IEnumerator DisplayStunned()
+    {
+        Color color = spriteRenderer.color;
+        color.b = 0;
+        spriteRenderer.color = color;
+        for (int i = 0; i < 5; i++)
+        {
+            color.b += 51;
+            spriteRenderer.color = color;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     IEnumerator ApplyContinuousDebuff()
     {
         isDebuffCoroutineOn = true;
@@ -220,7 +238,7 @@ public abstract class EntityBase : MonoBehaviour
         isActive = true;
     }
 
-    void SetAsSpawned()
+    public void SetAsSpawned()
     {
         isGhost = false;
         isInvulnerable = false;

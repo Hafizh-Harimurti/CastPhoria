@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  owner: {fileID: 0}
+  ownerTag: 
+  ownerPos: {x: 0, y: 0, z: 0}
   gatherSpeed: 0.2

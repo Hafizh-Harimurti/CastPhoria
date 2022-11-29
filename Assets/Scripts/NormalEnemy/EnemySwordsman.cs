@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySwordsman : EntityBase
 {
+    public GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,6 @@ public class EnemySwordsman : EntityBase
         OnUpdate();
         targetPos = target.transform.position;
         Move();
-    }
-
-    private void LateUpdate()
-    {
-        OnLateUpdate();
     }
 
     void Move()
@@ -39,8 +35,6 @@ public class EnemySwordsman : EntityBase
 
     void Attack()
     {
-        float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
-        Instantiate(arrow, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
-        animator.SetBool("isAttacking", false);
+        
     }
 }
