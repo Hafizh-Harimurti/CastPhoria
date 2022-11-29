@@ -23,6 +23,7 @@ public class SpellAAW : SpellBase
 
     void Update()
     {
+        if (owner == null) Destroy(gameObject);
         spellMovement = Time.deltaTime * moveSpeed *direction;
         if ((target - gameObject.transform.position - spellMovement).sqrMagnitude > 0.005)
         {
@@ -59,15 +60,8 @@ public class SpellAAW : SpellBase
 
     IEnumerator DamageEntity(Collider2D entityCollider)
     {
-        EntityBase entity = null;
-        if (entityCollider.gameObject.CompareTag("Player"))
-        {
-            entity = entityCollider.gameObject.GetComponent<Player>();
-        } else if (entityCollider.gameObject.CompareTag("Enemy"))
-        {
-            entity = entityCollider.gameObject.GetComponent<EnemyRanged>();
-        }
-        while (entitiesHit.Contains(entityCollider.gameObject))
+        EntityBase entity = entityCollider.gameObject.GetComponent<EntityBase>();
+        while (entityCollider != null && entitiesHit.Contains(entityCollider.gameObject))
         {
             entity.TakeDamage(damagePerTick);
             entity.ApplyDebuff(Debuff.Slow, effectTick, slowStrength);

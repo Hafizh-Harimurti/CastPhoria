@@ -23,6 +23,7 @@ public class SpellGGW : SpellBase
     // Update is called once per frame
     void Update()
     {
+        if (owner == null) Destroy(gameObject);
         transform.position += Time.deltaTime * moveSpeed * direction;
     }
 
@@ -31,14 +32,7 @@ public class SpellGGW : SpellBase
         GameObject otherGameObject = collider.gameObject;
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
-            if (otherGameObject.CompareTag("Player"))
-            {
-                entity = otherGameObject.GetComponent<Player>();
-            }
-            else if (otherGameObject.CompareTag("Enemy"))
-            {
-                entity = otherGameObject.GetComponent<EnemyRanged>();
-            }
+            entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
             entity.ApplyDebuff(Debuff.Slow, slowDuration, slowStrength);

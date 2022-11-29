@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemyRanged : EntityBase
 {
+    public GameObject projectile;
+    public GameObject target;
+    public GameState gameState;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +20,6 @@ public class EnemyRanged : EntityBase
         OnUpdate();
         targetPos = target.transform.position;
         Move();
-    }
-
-    private void LateUpdate()
-    {
-        OnLateUpdate();
     }
 
     void Move()
@@ -40,7 +38,13 @@ public class EnemyRanged : EntityBase
     void Attack()
     {
         float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
-        Instantiate(arrow, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
         animator.SetBool("isAttacking", false);
+    }
+
+    private void OnDestroy()
+    {
+        gameState.enemiesAlive.Remove(this);
+        gameState.enemiesLeft--;
     }
 }

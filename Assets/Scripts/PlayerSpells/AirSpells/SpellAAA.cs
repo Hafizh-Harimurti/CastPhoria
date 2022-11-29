@@ -22,6 +22,7 @@ public class SpellAAA : SpellBase
     // Update is called once per frame
     void Update()
     {
+        if (owner == null) Destroy(gameObject);
         spellMovement = Time.deltaTime *moveSpeed * direction;
         gameObject.transform.position += spellMovement;
         foreach (GameObject entity in entitiesHit)
@@ -36,6 +37,7 @@ public class SpellAAA : SpellBase
         if (!otherGameObject.CompareTag(owner.tag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
         {
             entitiesHit.Add(collider.gameObject);
+            StartCoroutine(DamageEntity(collider));
         }
     }
 
@@ -44,18 +46,10 @@ public class SpellAAA : SpellBase
         entitiesHit.Remove(collider.gameObject);
     }
 
-    IEnumerator DamageEntity(Collision2D entityCollision)
+    IEnumerator DamageEntity(Collider2D entityCollider)
     {
-        EntityBase entity = null;
-        if (entityCollision.gameObject.CompareTag("Player"))
-        {
-            entity = entityCollision.gameObject.GetComponent<Player>();
-        }
-        else if (entityCollision.gameObject.CompareTag("Enemy"))
-        {
-            entity = entityCollision.gameObject.GetComponent<EnemyRanged>();
-        }
-        while (entitiesHit.Contains(entityCollision.gameObject))
+        EntityBase entity = entityCollider.gameObject.GetComponent<EntityBase>();
+        while (entityCollider != null && entitiesHit.Contains(entityCollider.gameObject))
         {
             entity.TakeDamage(damagePerTick);
             yield return new WaitForSeconds(effectTick);

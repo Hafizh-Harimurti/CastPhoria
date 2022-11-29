@@ -6,8 +6,9 @@ using UnityEngine;
 public class SpellGround : ScriptableObject
 {
     public GameObject[] groundSpells;
+    public float[] spellCooldowns;
 
-    public void CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
+    public float CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
     {
         switch (element)
         {
@@ -32,9 +33,10 @@ public class SpellGround : ScriptableObject
                     break;
                 }
         }
+        return 0.0f;
     }
 
-    private void GGFSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float GGFSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = groundSpells[0];
         SpellGGF spellDetail = spell.GetComponent<SpellGGF>();
@@ -42,10 +44,12 @@ public class SpellGround : ScriptableObject
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.damage = 20 + (spellLevel - 1) * 5;
         Instantiate(spell, target, Quaternion.identity);
+        return spellCooldowns[0];
     }
 
-    private void GGWSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float GGWSpell(GameObject caster, Vector3 target, int spellLevel)
     {
+
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[1];
         SpellGGW spellDetail = spell.GetComponent<SpellGGW>();
@@ -57,9 +61,10 @@ public class SpellGround : ScriptableObject
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.moveSpeed = 2.5f;
         Instantiate(spell, castOrigin, Quaternion.identity);
+        return spellCooldowns[1];
     }
 
-    private void GGASpell(GameObject caster, Vector3 target, int spellLevel)
+    private float GGASpell(GameObject caster, Vector3 target, int spellLevel)
     {
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[2];
@@ -73,9 +78,10 @@ public class SpellGround : ScriptableObject
             spawnSpell = Quaternion.Euler(0, 0, 30) * spawnSpell;
             Instantiate(spell, spawnSpell + castOrigin, Quaternion.identity);
         }
+        return spellCooldowns[2];
     }
 
-    private void GGGSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float GGGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = groundSpells[3];
@@ -89,6 +95,7 @@ public class SpellGround : ScriptableObject
             castOrigin += direction/4;
             Instantiate(spell, castOrigin, Quaternion.identity);
         }
+        return spellCooldowns[3];
     }
 
     private Vector3 GetCasterBottomBound(GameObject caster)

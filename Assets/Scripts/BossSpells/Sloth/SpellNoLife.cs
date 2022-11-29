@@ -11,6 +11,11 @@ public class SpellNoLife : SpellBase
         entitiesHit = new List<GameObject>();
     }
 
+    private void Update()
+    {
+        if (owner == null) Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D (Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
@@ -30,15 +35,13 @@ public class SpellNoLife : SpellBase
         EntityBase entity = null;
         foreach (GameObject otherGameObject in entitiesHit)
         {
-            if (otherGameObject.CompareTag("Player"))
-            {
-                entity = otherGameObject.GetComponent<Player>();
-            }
-            else if (otherGameObject.CompareTag("Enemy"))
-            {
-                entity = otherGameObject.GetComponent<EnemyRanged>();
-            }
+            entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
         }
+    }
+
+    void DestroySpell()
+    {
+        Destroy(gameObject);
     }
 }

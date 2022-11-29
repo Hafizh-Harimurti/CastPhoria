@@ -10,9 +10,6 @@ public abstract class EntityBase : MonoBehaviour
     public float normalMoveSpeed = 1;
     public float debuffActivationTimer = 1;
     public Vector3 targetPos;
-    public GameObject arrow;
-    public GameObject target;
-    public Animator animator;
     public bool isDead;
 
     protected bool isGhost;
@@ -21,6 +18,7 @@ public abstract class EntityBase : MonoBehaviour
     protected bool isStunned;
     protected float moveSpeed;
     protected float damageOverTime;
+    protected Animator animator;
 
     protected float previousAnimatorSpeed;
     protected Vector3 relativePos;
@@ -33,28 +31,20 @@ public abstract class EntityBase : MonoBehaviour
 
     protected void OnStart()
     {
+        animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         isGhost = true;
         isActive = false;
         isInvulnerable = true;
         isDead = false;
         ResetDebuff();
         health = maxHealth;
-        animator = gameObject.GetComponent<Animator>();
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
 
     protected void OnUpdate()
     {
         DebuffEffect();
-        if (isGhost)
-        {
-
-        }
-        else if (isActive)
-        {
-            
-        }
         if (!isStunned && previousAnimatorSpeed != 0)
         {
             animator.speed = previousAnimatorSpeed;
@@ -68,11 +58,6 @@ public abstract class EntityBase : MonoBehaviour
         CheckDeath();
     }
 
-    protected void OnLateUpdate()
-    {
-        
-    }
-
     protected void Move(Vector3 destination)
     {
         transform.position += destination;
@@ -83,9 +68,10 @@ public abstract class EntityBase : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            ResetDebuff();
             isInvulnerable = true;
             isDead = true;
+            isStunned = false;
+            ResetDebuff();
         }
     }
 
@@ -102,6 +88,7 @@ public abstract class EntityBase : MonoBehaviour
 
     public void ApplyDebuff(Debuff debuff, float duration, float strength)
     {
+        if (isInvulnerable) return;
         int sameDebuffIndex = debuffs.FindIndex(e => (e.debuff == debuff));
         if (sameDebuffIndex == -1)
         {
@@ -109,7 +96,7 @@ public abstract class EntityBase : MonoBehaviour
         }
         else if (debuffs[sameDebuffIndex].strength >= strength)
         {
-            debuffs[sameDebuffIndex].duration += duration;
+            debuffs[sameDebuffIndex].duration = duration;
             return;
         }
         else
@@ -233,6 +220,13 @@ public abstract class EntityBase : MonoBehaviour
         isActive = true;
     }
 
+    void SetAsSpawned()
+    {
+        isGhost = false;
+        isInvulnerable = false;
+        isActive = true;
+    }
+
     protected void CheckDeath()
     {
         if (isDead)
@@ -243,7 +237,7 @@ public abstract class EntityBase : MonoBehaviour
         }
     }
 
-    void KillEntity()
+    public virtual void KillEntity()
     {
         Destroy(gameObject);
     }

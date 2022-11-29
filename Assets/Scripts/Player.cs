@@ -37,7 +37,6 @@ public class Player : EntityBase
         if (isActive)
         {
             DoMove();
-            DoAttack();
         }
         Test();
         HealthUpdate();
@@ -68,14 +67,14 @@ public class Player : EntityBase
         Move(new Vector3(moveX, moveY, 0));
     }
 
-    void DoAttack()
-    {
-        
-    }
-
     void HealthUpdate()
     {
         healthBar.SetHealth(health);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
     }
 
     void Test()

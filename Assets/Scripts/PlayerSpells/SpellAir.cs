@@ -6,35 +6,33 @@ using UnityEngine;
 public class SpellAir : ScriptableObject
 {
     public GameObject[] airSpells;
+    public float[] spellCooldowns;
 
-    public void CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
+    public float CastSpell(Element element, GameObject caster, Vector3 target, int spellLevel)
     {
         switch(element)
         {
             case Element.Fire:
                 {
-                    AAFSpell(caster, target, spellLevel);
-                    break;
+                    return AAFSpell(caster, target, spellLevel);
                 }
             case Element.Water:
                 {
-                    AAWSpell(caster, target, spellLevel);
-                    break;
+                    return AAWSpell(caster, target, spellLevel);
                 }
             case Element.Air:
                 {
-                    AAASpell(caster, target, spellLevel);
-                    break;
+                    return AAASpell(caster, target, spellLevel);
                 }
             case Element.Ground:
                 {
-                    AAGSpell(caster, target, spellLevel);
-                    break;
+                    return AAGSpell(caster, target, spellLevel);
                 }
         }
+        return 0.0f;
     }
 
-    private void AAFSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float AAFSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[0];
         SpellAAF spellDetail = spell.GetComponent<SpellAAF>();
@@ -42,9 +40,10 @@ public class SpellAir : ScriptableObject
         spellDetail.damage = 20 + (spellLevel-1) * 5;
         spellDetail.gatherSpeed = 0.2f;
         Instantiate(spell, target, Quaternion.identity);
+        return spellCooldowns[0];
     }
 
-    private void AAWSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float AAWSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[1];
         SpellAAW spellDetail = spell.GetComponent<SpellAAW>();
@@ -55,9 +54,10 @@ public class SpellAir : ScriptableObject
         spellDetail.damagePerTick = 3 + (spellLevel - 1) * 1;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         Instantiate(spell, GetCasterBottomBound(caster), Quaternion.identity);
+        return spellCooldowns[1];
     }
 
-    private void AAASpell(GameObject caster, Vector3 target, int spellLevel)
+    private float AAASpell(GameObject caster, Vector3 target, int spellLevel)
     {
         Vector3 castOrigin = GetCasterBottomBound(caster);
         GameObject spell = airSpells[2];
@@ -67,9 +67,10 @@ public class SpellAir : ScriptableObject
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
         Instantiate(spell, castOrigin, Quaternion.identity);
+        return spellCooldowns[2];
     }
 
-    private void AAGSpell(GameObject caster, Vector3 target, int spellLevel)
+    private float AAGSpell(GameObject caster, Vector3 target, int spellLevel)
     {
         GameObject spell = airSpells[3];
         SpellAAG spellDetail = spell.GetComponent<SpellAAG>();
@@ -79,6 +80,7 @@ public class SpellAir : ScriptableObject
         float spellSize = spell.GetComponent<SpriteRenderer>().size.y;
         target.y += spellSize/2;
         Instantiate(spell, target, Quaternion.identity);
+        return spellCooldowns[3];
     }
 
     private Vector3 GetCasterBottomBound(GameObject caster)

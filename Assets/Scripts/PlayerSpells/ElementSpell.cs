@@ -8,6 +8,7 @@ using UnityEngine;
 public class ElementSpell : MonoBehaviour
 {
     public ElementBar elementBar;
+    public CooldownNotification cooldownNotification;
 
     [SerializeField]
     private SpellAir spellAir;
@@ -18,38 +19,77 @@ public class ElementSpell : MonoBehaviour
 
     private Element finalElement;
     private Element[] elements;
-    private int[] elementCooldowns;
+    private float[] elementCooldowns;
     private int[] elementCounts;
+    private float[,] spellCooldownTimer;
 
     private void Start()
     {
         elements = new Element[3];
-        elementCooldowns = new int[4];
+        elementCooldowns = new float[4] {0,0,0,0};
         elementCounts = new int[4];
+        spellCooldownTimer = new float[5, 4];
+        for (int i = 0; i < 5; i++) for (int j = 0; j < 4; j++) spellCooldownTimer[i, j] = 0;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (elementCooldowns[i] > 0)
+            {
+                elementCooldowns[i] -= Time.deltaTime;
+                if (elementCooldowns[i] < 0)
+                {
+                    elementCooldowns[i] = 0;
+                }
+            }
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (spellCooldownTimer[i, j] > 0)
+                {
+                    spellCooldownTimer[i, j] -= Time.deltaTime;
+                    if (spellCooldownTimer[i, j] < 0)
+                    {
+                        spellCooldownTimer[i, j] = 0;
+                    }
+                }
+            }
+        }
     }
 
     public void AddElement(Element element)
     {
-        if (elements.Contains(Element.None))
+        if (elementCooldowns[(int)element] > 0)
         {
-            for (int i = 0; i < elements.Length; i++)
-            {
-                if (elements[i] == Element.None)
-                {
-                    elements[i] = element;
-                    break;
-                }
-            }
+            cooldownNotification.CreateNotification("Element on cooldown!");
         }
         else
         {
-            for (int i = 0; i < elements.Length - 1; i++)
+            if (elements.Contains(Element.None))
             {
-                elements[i] = elements[i + 1];
+                for (int i = 0; i < elements.Length; i++)
+                {
+                    if (elements[i] == Element.None)
+                    {
+                        elements[i] = element;
+                        break;
+                    }
+                }
             }
-            elements[elements.Length - 1] = element;
+            else
+            {
+                for (int i = 0; i < elements.Length - 1; i++)
+                {
+                    elements[i] = elements[i + 1];
+                }
+                elements[elements.Length - 1] = element;
+            }
+            elementBar.SetElements(elements);
         }
-        elementBar.SetElements(elements);
     }
 
     public void CastElements(GameObject caster, Vector3 target, int spellLevel = 1)
@@ -65,6 +105,7 @@ public class ElementSpell : MonoBehaviour
                     elementCooldowns[(int)elements[i]-1] += 2;
                 }
             }
+            Array.Clear(elements, 0, elements.Length);
             elementBar.ResetElements();
             return;
         }
@@ -92,12 +133,30 @@ public class ElementSpell : MonoBehaviour
                         }
                     case 2:
                         {
-                            spellAir.CastSpell(finalElement, caster, target, spellLevel);
+                            if (spellCooldownTimer[2, (int)finalElement] > 0)
+                            {
+                                //Failcast(elements, caster);
+                                for (int j = 0; j < elements.Length; i++)
+                                {
+                                    elementCooldowns[(int)elements[j] - 1] += 2;
+                                }
+                                break;
+                            }
+                            spellCooldownTimer[2,(int)finalElement] += spellAir.CastSpell(finalElement, caster, target, spellLevel);
                             break;
                         }
                     case 3:
                         {
-                            spellGround.CastSpell(finalElement, caster, target, spellLevel);
+                            if (spellCooldownTimer[3, (int)finalElement] > 0)
+                            {
+                                //Failcast(elements, caster);
+                                for (int j = 0; j < elements.Length; i++)
+                                {
+                                    elementCooldowns[(int)elements[j] - 1] += 2;
+                                }
+                                break;
+                            }
+                            spellCooldownTimer[3, (int)finalElement] += spellGround.CastSpell(finalElement, caster, target, spellLevel);
                             break;
                         }
                 }

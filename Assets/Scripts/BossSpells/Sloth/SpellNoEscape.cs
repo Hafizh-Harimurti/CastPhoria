@@ -20,6 +20,7 @@ public class SpellNoEscape : SpellBase
     // Update is called once per frame
     void Update()
     {
+        if (owner == null) Destroy(gameObject);
         transform.position += Time.deltaTime * moveSpeed * direction;
     }
 

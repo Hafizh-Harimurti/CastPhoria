@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4625972746424409284}
   - component: {fileID: 4625972746424409285}
   m_Layer: 6
-  m_Name: EnemyArcher (1)
+  m_Name: EnemyArcher
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,10 +105,10 @@ MonoBehaviour:
   normalMoveSpeed: 2
   debuffActivationTimer: 0
   targetPos: {x: 0, y: 0, z: 0}
-  arrow: {fileID: 4679663405919648988, guid: 13254f550c431f247a398d1a059a57e4, type: 3}
-  target: {fileID: 8573529820924502820, guid: 16b7cb39d70886341b060b0f28dda6a2, type: 3}
-  animator: {fileID: 0}
   isDead: 0
+  projectile: {fileID: 4679663405919648988, guid: 13254f550c431f247a398d1a059a57e4, type: 3}
+  target: {fileID: 8573529820924502820, guid: 16b7cb39d70886341b060b0f28dda6a2, type: 3}
+  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
 --- !u!95 &8479624078258452130
 Animator:
   serializedVersion: 4

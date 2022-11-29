@@ -16,6 +16,11 @@ public class SpellAAF : SpellBase
         isDamageDealt = false;
     }
 
+    private void Update()
+    {
+        if (owner == null) Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
@@ -35,14 +40,7 @@ public class SpellAAF : SpellBase
         EntityBase entity = null;
         foreach (GameObject otherGameObject in entitiesHit)
         {
-            if (otherGameObject.CompareTag("Player"))
-            {
-                entity = otherGameObject.GetComponent<Player>();
-            }
-            else if (otherGameObject.CompareTag("Enemy"))
-            {
-                entity = otherGameObject.GetComponent<EnemyRanged>();
-            }
+            entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
         }
         isDamageDealt = true;
@@ -59,7 +57,7 @@ public class SpellAAF : SpellBase
 
     IEnumerator MoveEntity(GameObject otherGameObject, Vector3 spellCenter)
     {
-        while (!isDamageDealt && entitiesHit.Contains(otherGameObject))
+        while (otherGameObject != null && !isDamageDealt && entitiesHit.Contains(otherGameObject))
         {
             Vector3 spellMovement = Time.deltaTime * gatherSpeed * (spellCenter - otherGameObject.transform.position).normalized;
             if ((spellCenter - otherGameObject.transform.position - spellMovement).magnitude > 0)

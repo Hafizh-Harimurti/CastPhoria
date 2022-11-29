@@ -19,6 +19,11 @@ public class SpellGGA : SpellBase
         castOrigin = owner.transform.position;
     }
 
+    private void Update()
+    {
+        if (owner == null) Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
@@ -39,14 +44,7 @@ public class SpellGGA : SpellBase
         foreach (GameObject otherGameObject in entitiesHit)
         {
             Debug.Log(otherGameObject.name);
-            if (otherGameObject.CompareTag("Player"))
-            {
-                entity = otherGameObject.GetComponent<Player>();
-            }
-            else if (otherGameObject.CompareTag("Enemy"))
-            {
-                entity = otherGameObject.GetComponent<EnemyRanged>();
-            }
+            entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
             knockbackForce = (transform.position - castOrigin).normalized * 0.3f;

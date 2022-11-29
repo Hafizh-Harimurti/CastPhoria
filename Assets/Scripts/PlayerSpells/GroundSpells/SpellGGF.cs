@@ -15,6 +15,11 @@ public class SpellGGF : SpellBase
         StartCoroutine(EndSpell(2));
     }
 
+    private void Update()
+    {
+        if (owner == null) Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
@@ -40,14 +45,7 @@ public class SpellGGF : SpellBase
         EntityBase entity = null;
         foreach (GameObject otherGameObject in entitiesHit)
         {
-            if (otherGameObject.CompareTag("Player"))
-            {
-                entity = otherGameObject.GetComponent<Player>();
-            }
-            else if (otherGameObject.CompareTag("Enemy"))
-            {
-                entity = otherGameObject.GetComponent<EnemyRanged>();
-            }
+            entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
             entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
         }
