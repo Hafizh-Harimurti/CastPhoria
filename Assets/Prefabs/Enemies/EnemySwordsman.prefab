@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2838543582220386199}
   - component: {fileID: -8601018162163035674}
   - component: {fileID: -31628961876139170}
-  - component: {fileID: 922452222282523183}
   - component: {fileID: -2136015677685901610}
+  - component: {fileID: 4954131983392752252}
   m_Layer: 0
   m_Name: EnemySwordsman
   m_TagString: Untagged
@@ -124,25 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &922452222282523183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186136093420731630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1384b96fb860b4f97927ca38675cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 100
-  normalMoveSpeed: 1
-  debuffActivationTimer: 1
-  targetPos: {x: 0, y: 0, z: 0}
-  isDead: 0
-  speed: 0
 --- !u!50 &-2136015677685901610
 Rigidbody2D:
   serializedVersion: 4
@@ -158,9 +139,28 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4954131983392752252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186136093420731630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c59e5fa21aace84f9dc47015e2953e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  normalMoveSpeed: 1
+  debuffActivationTimer: 1
+  targetPos: {x: 0, y: 0, z: 0}
+  isDead: 0
+  speed: 0.5

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2710622108148685654}
   - component: {fileID: 4231303227339755888}
   - component: {fileID: 607302033483047845}
-  - component: {fileID: 632538424453210365}
   - component: {fileID: 1898575695}
   - component: {fileID: 1898575694}
+  - component: {fileID: 8124732366934596461}
   m_Layer: 6
   m_Name: EnemySorcerer
   m_TagString: Enemy
@@ -108,26 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &632538424453210365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9123175724082667971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce137cd1e3766a47ae73d9d495cb4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 100
-  normalMoveSpeed: 1
-  debuffActivationTimer: 1
-  targetPos: {x: 0, y: 0, z: 0}
-  isDead: 0
-  fireball: {fileID: 6536136271043296621, guid: cef08a1ba73d5414b8525e1f4313d416, type: 3}
-  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
 --- !u!50 &1898575695
 Rigidbody2D:
   serializedVersion: 4
@@ -175,3 +155,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1516466, y: 0.30569407}
   m_EdgeRadius: 0
+--- !u!114 &8124732366934596461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123175724082667971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ae697d09bb13a468fbb5e7004bfeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  normalMoveSpeed: 1
+  debuffActivationTimer: 1
+  targetPos: {x: 0, y: 0, z: 0}
+  isDead: 0
+  speed: 0.5

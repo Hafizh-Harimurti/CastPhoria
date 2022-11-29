@@ -5,30 +5,25 @@ using UnityEngine;
 
 public class EnemySwordsman : EntityBase
 {
-    public GameObject target;
+    
     // Start is called before the first frame update
     public float speed;
-    private Transform targetTransform;
+    private Transform target;
     private Animator anim;
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            targetTransform = other.transform;
-        }
-    }
+    
     void Start()
     {
-        targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        anim.SetBool("isIdle", true);
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        OnUpdate();
-        targetPos = target.transform.position;
-        Move();
+        if(Vector2.Distance(transform.position, target.position) > 0.2 )
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
     }
 
     void Move()
