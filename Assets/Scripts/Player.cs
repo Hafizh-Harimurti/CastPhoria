@@ -90,11 +90,6 @@ public class Player : EntityBase
         healthBar.SetHealth(health);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-    }
-
     void PlayerInput()
     {
         if(Input.GetKeyDown(KeyCode.Space))

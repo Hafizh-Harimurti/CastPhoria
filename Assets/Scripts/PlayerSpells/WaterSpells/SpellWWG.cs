@@ -4,52 +4,44 @@ using UnityEngine;
 
 public class SpellWWG : SpellBase
 {
-    public float stunDuration;
+    public float knockbackStrength;
 
     private Vector2 knockbackForce;
-    private List<GameObject> entitiesHit;
+    private Vector3 colliderCenter;
 
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
-        StartCoroutine(EndSpell(2));
+        OnStart();
+        colliderCenter = GetComponent<CircleCollider2D>().bounds.center;
+        debuffs.Add(new DebuffInfo(Debuff.Slow, slowDuration, slowStrength));
+        debuffs.Add(new DebuffInfo(Debuff.Stun, stunDuration, 1));
+        StartCoroutine(EndSpell(lifetime));
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
-        {
-            entitiesHit.Add(collider.gameObject);
-        }
+        OnTriggerEnter2DBase(collider);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
+        OnTriggerExit2DBase(collider);
     }
 
-    IEnumerator EndSpell(float lifetime)
+    public override void ImpulseEffect()
     {
-        yield return new WaitForSeconds(lifetime);
-        GetComponent<Animator>().SetBool("isDone", true);
-    }
-
-    void DamageEntity()
-    {
-        EntityBase entity = null;
+        EntityBase entity;
         foreach (GameObject otherGameObject in entitiesHit)
         {
             entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
-            entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-            knockbackForce = (transform.position - ownerPos).normalized * 0.2f;
+            foreach (DebuffInfo debuff in debuffs)
+            {
+                entity.ApplyDebuff(debuff);
+            }
+            knockbackForce = (otherGameObject.GetComponent<BoxCollider2D>().bounds.center - colliderCenter).normalized * knockbackStrength;
+            otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
     }
 }

@@ -52,7 +52,7 @@ public class SpellAir : ScriptableObject
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.target = target;
         spellDetail.moveSpeed = 1;
-        spellDetail.lifetimeMax = 3 + (spellLevel - 1) * 0.5f;
+        spellDetail.lifetime = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.damagePerTick = 3 + (spellLevel - 1) * 1;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         Instantiate(spell, GetCasterBottomBound(caster), Quaternion.identity);
@@ -69,6 +69,7 @@ public class SpellAir : ScriptableObject
         spellDetail.moveSpeed = 1;
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
+        spellDetail.lifetime = 3;
         Instantiate(spell, castOrigin, Quaternion.identity);
         return spellCooldowns[2];
     }
@@ -81,8 +82,6 @@ public class SpellAir : ScriptableObject
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.damage = 10 + (spellLevel - 1) * 2.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;
-        float spellSize = spell.GetComponent<SpriteRenderer>().size.y;
-        target.y += spellSize/2;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[3];
     }

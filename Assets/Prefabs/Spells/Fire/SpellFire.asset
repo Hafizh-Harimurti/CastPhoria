@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b271c6becf9cca045ad8c2a714692599, type: 3}
+  m_Name: SpellFire
+  m_EditorClassIdentifier: 
+  fireSpells:
+  - {fileID: 1378249774450449911, guid: 191f7b4cfde4f1c4bb5ef339d7fce0d8, type: 3}
+  - {fileID: 1976333690969861349, guid: c218994a0f19a524588f354551488d4e, type: 3}
+  - {fileID: 3911698492149961101, guid: 455c19b98a1b8d344a61fa4575f5a22b, type: 3}
+  - {fileID: 4558856117556846224, guid: 0e1169909ff83b9408215c613dda3b78, type: 3}
+  spellCooldowns:
+  - 5
+  - 5
+  - 5
+  - 5

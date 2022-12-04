@@ -4,51 +4,42 @@ using UnityEngine;
 
 public class SpellWWF : SpellBase
 {
-    public float stunDuration;
+    public float knockbackStrength;
 
-    private List<GameObject> entitiesHit;
     private Vector2 knockbackForce;
-    private Vector3 castOrigin;
 
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
+        OnStart();
+        debuffs.Add(new DebuffInfo(Debuff.Slow, slowDuration, slowStrength));
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = (transform.position.x - ownerPos.x) < 0;
-        castOrigin = ownerPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
-        {
-            entitiesHit.Add(collider.gameObject);
-        }
+        OnTriggerEnter2DBase(collider);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
+        OnTriggerExit2DBase(collider);
     }
 
-    void DamageEntity()
+    public override void ImpulseEffect()
     {
-        EntityBase entity = null;
+        EntityBase entity;
         foreach (GameObject otherGameObject in entitiesHit)
         {
-            Debug.Log(otherGameObject.name);
             entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
-            entity.ApplyDebuff(Debuff.Stun, stunDuration, 0.2f);
-            knockbackForce = (transform.position - castOrigin).normalized * 0.8f;
+            foreach (DebuffInfo debuff in debuffs)
+            {
+                entity.ApplyDebuff(debuff);
+            }
+            knockbackForce = (otherGameObject.GetComponent<BoxCollider2D>().bounds.center - ownerPos).normalized * knockbackStrength;
             otherGameObject.GetComponent<Rigidbody2D>().AddForce(knockbackForce, ForceMode2D.Impulse);
         }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
     }
 }

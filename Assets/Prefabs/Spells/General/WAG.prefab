@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5976429466950416875}
   - component: {fileID: 5976429466950416872}
   m_Layer: 0
-  m_Name: WGA
+  m_Name: WAG
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

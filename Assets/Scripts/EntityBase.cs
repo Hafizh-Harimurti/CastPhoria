@@ -91,34 +91,34 @@ public abstract class EntityBase : MonoBehaviour
         if (applyContinuousDebuff != null) StopCoroutine(applyContinuousDebuff);
     }
 
-    public void ApplyDebuff(Debuff debuff, float duration, float strength)
+    public void ApplyDebuff(DebuffInfo debuffInfo)
     {
         if (isInvulnerable) return;
-        int sameDebuffIndex = debuffs.FindIndex(e => (e.debuff == debuff));
+        int sameDebuffIndex = debuffs.FindIndex(e => (e.debuff == debuffInfo.debuff));
         if (sameDebuffIndex == -1)
         {
-            debuffs.Add(new DebuffInfo(debuff, duration, strength));
+            debuffs.Add(debuffInfo);
         }
-        else if (debuffs[sameDebuffIndex].strength >= strength)
+        else if (debuffs[sameDebuffIndex].strength >= debuffInfo.strength)
         {
-            debuffs[sameDebuffIndex].duration = duration;
+            debuffs[sameDebuffIndex].duration = debuffInfo.duration;
             return;
         }
         else
         {
             RemoveDebuff(debuffs[sameDebuffIndex]);
-            debuffs[sameDebuffIndex] = new DebuffInfo(debuff, duration, strength);
+            debuffs.Insert(sameDebuffIndex, debuffInfo);
         }
-        switch (debuff)
+        switch (debuffInfo.debuff)
         {
             case Debuff.Burn:
                 {
-                    AddDamageOverTime(strength);
+                    AddDamageOverTime(debuffInfo.strength);
                     break;
                 }
             case Debuff.Slow:
                 {
-                    moveSpeed = normalMoveSpeed / strength;
+                    moveSpeed = normalMoveSpeed / (debuffInfo.strength + 1);
                     break;
                 }
             case Debuff.Stun:

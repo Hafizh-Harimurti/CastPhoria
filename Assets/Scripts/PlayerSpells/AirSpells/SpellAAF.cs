@@ -8,31 +8,26 @@ public class SpellAAF : SpellBase
     public float gatherSpeed;
 
     private bool isDamageDealt;
-    private List<GameObject> entitiesHit;
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
+        OnStart();
         isDamageDealt = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
-        {
-            entitiesHit.Add(collider.gameObject);
-        }
+        OnTriggerEnter2DBase(collider);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
+        OnTriggerExit2DBase(collider);
     }
 
     void DamageEntity()
     {
-        EntityBase entity = null;
+        EntityBase entity;
         foreach (GameObject otherGameObject in entitiesHit)
         {
             entity = otherGameObject.GetComponent<EntityBase>();
@@ -65,10 +60,5 @@ public class SpellAAF : SpellBase
             }
             yield return null;
         }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
     }
 }

@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class SpellNoEscape : SpellBase
 {
-    public Vector3 direction;
-    public float moveSpeed;
-    public float stunDuration;
-    public float slowDuration;
-    public float slowStrength;
-
     private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        OnStart();
         animator = GetComponent<Animator>();
     }
 
@@ -30,14 +25,9 @@ public class SpellNoEscape : SpellBase
         {
             EntityBase otherEntity = otherGameObject.GetComponent<EntityBase>();
             otherEntity.TakeDamage(damage);
-            otherEntity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-            otherEntity.ApplyDebuff(Debuff.Slow, slowDuration, slowStrength);
+            otherEntity.ApplyDebuff(new DebuffInfo(Debuff.Stun, stunDuration, 1));
+            otherEntity.ApplyDebuff(new DebuffInfo(Debuff.Slow, slowDuration, slowStrength));
             animator.SetBool("isDone", true);
         }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
     }
 }

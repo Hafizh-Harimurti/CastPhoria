@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378249774200751222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5634885, y: -0.053, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1696127, z: 0}
   m_LocalScale: {x: 1, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1378249774450449897}
   - component: {fileID: 1378249774450449896}
   - component: {fileID: 2303855766367828189}
-  - component: {fileID: 7103029273857929201}
+  - component: {fileID: 3842882228943549695}
   m_Layer: 0
   m_Name: FFF
   m_TagString: Untagged
@@ -111,8 +111,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378249774450449911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.885752, y: -0.094395004, z: 0.001449585}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0.001449585}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1378249774200751223}
@@ -153,12 +153,12 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5675976, y: -0.18663555}
+  m_Offset: {x: 0, y: 0.04}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.2}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -166,7 +166,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29659402, y: 0.20045567}
   m_EdgeRadius: 0
---- !u!114 &7103029273857929201
+--- !u!114 &3842882228943549695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,11 +175,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1378249774450449911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b326752d20c4e41aacd0f36f26b5be, type: 3}
+  m_Script: {fileID: 11500000, guid: a657762dda7c99e488d26970bc80fd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 60
-  owner: {fileID: 0}
+  ownerTag: Player
+  ownerPos: {x: -3.0091698, y: 0.31721234, z: 0}
+  slowStrength: 0
+  slowDuration: 0
+  stunDuration: 0
+  target: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  moveSpeed: 0
+  damage: 40
+  damagePerTick: 0
+  effectTick: 0
+  lifetime: 0
 --- !u!1 &1378249775431809888
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378249775431809888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56348854, y: -0.22261274, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4,39 +4,19 @@ using UnityEngine;
 
 public class SpellFFF : SpellBase
 {
-    private List<GameObject> entitiesHit;
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
+        OnStart();
     }
 
     private void OnTriggerEnter2D (Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
-        {
-            entitiesHit.Add(collider.gameObject);
-        }
+        OnTriggerEnter2DBase(collider);
     }
 
     private void OnTriggerExit2D (Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
-    }
-
-    void DamageEntity()
-    {
-        EntityBase entity = null;
-        foreach (GameObject otherGameObject in entitiesHit)
-        {
-            entity = otherGameObject.GetComponent<EntityBase>();
-            entity.TakeDamage(damage);
-        }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
+        OnTriggerExit2DBase(collider);
     }
 }

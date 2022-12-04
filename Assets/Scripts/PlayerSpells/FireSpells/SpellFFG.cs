@@ -5,42 +5,22 @@ using UnityEngine;
 
 public class SpellFFG : SpellBase
 {
-    public float stunDuration;
-
-    private List<GameObject> entitiesHit;
-
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
+        OnStart();
+        debuffs.Add(new DebuffInfo(Debuff.Stun, stunDuration, 1));
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipX = (transform.position.x - ownerPos.x) < 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
-        {
-            entitiesHit.Add(collider.gameObject);
-        }
+        OnTriggerEnter2DBase(collider);
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
-    }
-    void DamageEntity()
-    {
-        EntityBase entity = null;
-        foreach (GameObject otherGameObject in entitiesHit)
-        {
-            entity = otherGameObject.GetComponent<EntityBase>();
-            entity.TakeDamage(damage);
-            entity.ApplyDebuff(Debuff.Stun, stunDuration, 1);
-        }
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
+       OnTriggerExit2DBase(collider);
     }
 }

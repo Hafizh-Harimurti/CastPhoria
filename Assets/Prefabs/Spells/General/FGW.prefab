@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 540076090364695397}
   - component: {fileID: 540076090364695396}
   m_Layer: 0
-  m_Name: FWG
+  m_Name: FGW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

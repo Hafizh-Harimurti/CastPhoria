@@ -82,7 +82,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.36
-    functionName: DestroyProjectile
+    functionName: DestroySpell
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

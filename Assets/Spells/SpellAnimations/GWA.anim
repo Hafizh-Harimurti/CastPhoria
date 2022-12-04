@@ -208,21 +208,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.13333334
-    functionName: DamageEntity
+    functionName: ImpulseEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6333333
-    functionName: DamageEntity
+    functionName: ImpulseEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.2
-    functionName: DamageEntity
+    functionName: ImpulseEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

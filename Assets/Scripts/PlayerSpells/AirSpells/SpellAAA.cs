@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class SpellAAA : SpellBase
 {
-    public float moveSpeed;
-    public float lifetimeMax;
-    public Vector3 direction;
-    public float damagePerTick = 1.5f;
-    public float effectTick = 0.5f;
-
-    private Vector3 spellMovement;
-    private List<GameObject> entitiesHit;
     // Start is called before the first frame update
     void Start()
     {
-        entitiesHit = new List<GameObject>();
-        StartCoroutine(EndSpell(lifetimeMax));
+        OnStart();
+        StartCoroutine(EndSpell(lifetime));
     }
 
     // Update is called once per frame
     void Update()
     {
-        spellMovement = Time.deltaTime *moveSpeed * direction;
-        gameObject.transform.position += spellMovement;
+        spellMovement = Time.deltaTime * moveSpeed * direction;
+        transform.position += spellMovement;
         foreach (GameObject entity in entitiesHit)
         {
             entity.transform.position += spellMovement * 3 / 4;
@@ -32,37 +24,14 @@ public class SpellAAA : SpellBase
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if(OnTriggerEnter2DBase(collider))
         {
-            entitiesHit.Add(collider.gameObject);
-            StartCoroutine(DamageEntity(collider));
+            StartCoroutine(ContinuousEffect(collider));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
-    }
-
-    IEnumerator DamageEntity(Collider2D entityCollider)
-    {
-        EntityBase entity = entityCollider.gameObject.GetComponent<EntityBase>();
-        while (entityCollider != null && entitiesHit.Contains(entityCollider.gameObject))
-        {
-            entity.TakeDamage(damagePerTick);
-            yield return new WaitForSeconds(effectTick);
-        }
-    }
-
-    IEnumerator EndSpell(float lifetime)
-    {
-        yield return new WaitForSeconds(lifetime);
-        GetComponent<Animator>().SetBool("isDone", true);
-    }
-
-    void DestroyProjectile()
-    {
-        Destroy(gameObject);
+        OnTriggerExit2DBase(collider);
     }
 }

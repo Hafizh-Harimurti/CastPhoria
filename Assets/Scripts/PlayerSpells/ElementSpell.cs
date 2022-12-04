@@ -11,6 +11,10 @@ public class ElementSpell : MonoBehaviour
     public CooldownNotification cooldownNotification;
 
     [SerializeField]
+    private SpellFire spellFire;
+    [SerializeField]
+    private SpellWater spellWater;
+    [SerializeField]
     private SpellAir spellAir;
     [SerializeField]
     private SpellGround spellGround;
@@ -25,7 +29,7 @@ public class ElementSpell : MonoBehaviour
     private int[] elementCounts;
     private float[,] spellCooldownTimer;
 
-    private void Start()
+    void Start()
     {
         elements = new Element[3];
         elementCooldowns = new float[4];
@@ -35,7 +39,7 @@ public class ElementSpell : MonoBehaviour
         for (int i = 0; i < 5; i++) for (int j = 0; j < 4; j++) spellCooldownTimer[i, j] = 0;
     }
 
-    private void Update()
+    void Update()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -99,51 +103,55 @@ public class ElementSpell : MonoBehaviour
     {
         if (elements.All(e => e == Element.None)) return;
         Array.Clear(elementCounts, 0, elementCounts.Length);
-        if (elements.Contains(Element.None))
-        {
-            spellFailcast.Failcast(elementCounts, caster);
-            for (int i = 0; i < elements.Length; i++)
-            {
-                if (elements[i] != Element.None)
-                {
-                    elementCooldowns[(int)elements[i]-1] += 2;
-                }
-            }
-            Array.Clear(elements, 0, elements.Length);
-            elementBar.ResetElements();
-            return;
-        }
         for (int i = 0; i < elements.Length; i++)
         {
+            if (elements[i] == Element.None)
+            {
+                CastFailcast(caster);
+                return;
+            }
             elementCounts[(int)elements[i]-1]++;
+            elements[i] = Element.None;
         }
         for (int i = 0; i < elementCounts.Length; i++)
         {
             if (elementCounts[i] >= 2)
             {
-                elementCounts[i] -= 2;
-                finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 1)+1);
+                finalElement = (Element)(Array.FindIndex(elementCounts, e => e != 2 && e != 0) + 1);
                 switch (i)
                 {
                     case 0:
                         {
-                            //FireSpell(finalElement, caster);
+                            if (spellCooldownTimer[0, (int)finalElement - 1] > 0)
+                            {
+                                CastFailcast(caster);
+                                return;
+                            }
+                            else
+                            {
+                                spellCooldownTimer[0, (int)finalElement - 1] += spellFire.CastSpell(finalElement, caster, target, spellLevel);
+                            }
                             break;
                         }
                     case 1:
                         {
-                            //WaterSpell(elementCounts, caster);
+                            if (spellCooldownTimer[1, (int)finalElement - 1] > 0)
+                            {
+                                CastFailcast(caster);
+                                return;
+                            }
+                            else
+                            {
+                                spellCooldownTimer[1, (int)finalElement - 1] += spellWater.CastSpell(finalElement, caster, target, spellLevel);
+                            }
                             break;
                         }
                     case 2:
                         {
                             if (spellCooldownTimer[2, (int)finalElement - 1] > 0)
                             {
-                                spellFailcast.Failcast(elementCounts, caster);
-                                for (int j = 0; j < elements.Length; j++)
-                                {
-                                    elementCooldowns[(int)elements[j] - 1] += 2;
-                                }
+                                CastFailcast(caster);
+                                return;
                             }
                             else
                             {
@@ -155,11 +163,8 @@ public class ElementSpell : MonoBehaviour
                         {
                             if (spellCooldownTimer[3, (int)finalElement - 1] > 0)
                             {
-                                spellFailcast.Failcast(elementCounts, caster);
-                                for (int j = 0; j < elements.Length; j++)
-                                {
-                                    elementCooldowns[(int)elements[j] - 1] += 2;
-                                }
+                                CastFailcast(caster);
+                                return;
                             }
                             else
                             {
@@ -168,26 +173,31 @@ public class ElementSpell : MonoBehaviour
                             break;
                         }
                 }
-                Array.Clear(elements, 0, elements.Length);
                 elementBar.ResetElements();
                 return;
             }
         }
+        finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 0) + 1);
         if (spellCooldownTimer[4, (int)finalElement - 1] > 0)
         {
-            spellFailcast.Failcast(elementCounts, caster);
-            for (int j = 0; j < elements.Length; j++)
-            {
-                elementCooldowns[(int)elements[j] - 1] += 2;
-            }
+            CastFailcast(caster);
+            return;
         }
         else
         {
-            finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 0) + 1);
-            spellGeneral.CastSpell(finalElement, caster, target, spellLevel);
+            spellCooldownTimer[4, (int)finalElement - 1] += spellGeneral.CastSpell(finalElement, caster, target, spellLevel);
         }
-        Array.Clear(elements, 0, elements.Length);
         elementBar.ResetElements();
         return;
+    }
+
+    void CastFailcast(GameObject caster)
+    {
+        spellFailcast.Failcast(elementCounts, caster);
+        for (int i = 0; i < elementCounts.Length; i++)
+        {
+            elementCooldowns[i] += elementCounts[i] * 2;
+        }
+        elementBar.ResetElements();
     }
 }

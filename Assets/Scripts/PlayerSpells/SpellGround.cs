@@ -14,23 +14,19 @@ public class SpellGround : ScriptableObject
         {
             case Element.Fire:
                 {
-                    GGFSpell(caster, target, spellLevel);
-                    break;
+                    return GGFSpell(caster, target, spellLevel);
                 }
             case Element.Water:
                 {
-                    GGWSpell(caster, target, spellLevel);
-                    break;
+                    return GGWSpell(caster, target, spellLevel);
                 }
             case Element.Air:
                 {
-                    GGASpell(caster, target, spellLevel);
-                    break;
+                    return GGASpell(caster, target, spellLevel);
                 }
             case Element.Ground:
                 {
-                    GGGSpell(caster, target, spellLevel);
-                    break;
+                    return GGGSpell(caster, target, spellLevel);
                 }
         }
         return 0.0f;
@@ -62,6 +58,7 @@ public class SpellGround : ScriptableObject
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.moveSpeed = 2.5f;
+        spellDetail.lifetime = 5;
         Instantiate(spell, castOrigin, Quaternion.identity);
         return spellCooldowns[1];
     }
@@ -74,6 +71,7 @@ public class SpellGround : ScriptableObject
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
+        spellDetail.knockbackStrength = 0.25f +(spellLevel - 1) * 0.1f;
         spellDetail.damage = 5 + (spellLevel - 1) * 1;
         Vector3 spawnSpell = Quaternion.Euler(0, 0, -60) * (target - castOrigin);
         for (int i = 0; i < 3; i++)
@@ -105,7 +103,7 @@ public class SpellGround : ScriptableObject
     private Vector3 GetCasterBottomBound(GameObject caster)
     {
         Vector3 casterPos = caster.transform.position;
-        casterPos.y = caster.GetComponent<BoxCollider2D>().bounds.center.y;
+        casterPos.y = caster.GetComponent<BoxCollider2D>().bounds.min.y;
         return casterPos;
     }
 }

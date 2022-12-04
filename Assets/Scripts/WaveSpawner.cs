@@ -49,7 +49,7 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave(waves[currentWave]));
             nextWave++;
         }
-        else if (!gameState.isBossAlive && gameState.currentWave.name == "Boss Wave")
+        else if (!gameState.isBossAlive && gameState.currentWave.name.Contains("Boss"))
         {
             bossBar.SetActive(false);
             foreach (EntityBase entity in gameState.enemiesAlive)
@@ -58,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
             }
             gameState.GameOver(true);
         }
-        else if (gameState.enemiesLeft  <= 0)
+        else if (!gameState.currentWave.name.Contains("Boss") && gameState.enemiesLeft  <= 0)
         {
             currentWave = nextWave;
             isReady = true;

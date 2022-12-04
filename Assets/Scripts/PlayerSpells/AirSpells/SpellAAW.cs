@@ -4,78 +4,45 @@ using UnityEngine;
 
 public class SpellAAW : SpellBase
 {
-    public float lifetimeMax = 3;
-    public float moveSpeed = 1;
-    public float damagePerTick = 10;
-    public float slowStrength = 1.5f;
-    public float effectTick = 1;
-    public Vector3 target;
-
-    private Vector3 direction;
-    private Vector3 spellMovement;
-    private List<GameObject> entitiesHit;
     void Start()
     {
-        entitiesHit = new List<GameObject>();
+        OnStart();
         direction = (target - gameObject.transform.position).normalized;
-        StartCoroutine(EndSpell(lifetimeMax));
+        debuffs.Add(new DebuffInfo(Debuff.Slow, effectTick, slowStrength));
+        StartCoroutine(EndSpell(lifetime));
     }
 
     void Update()
     {
-        spellMovement = Time.deltaTime * moveSpeed *direction;
-        if ((target - gameObject.transform.position - spellMovement).sqrMagnitude > 0.005)
+        spellMovement = Time.deltaTime * moveSpeed * direction;
+        if ((target - transform.position - spellMovement).sqrMagnitude > 5e-3)
         {
-            gameObject.transform.position += spellMovement;
+            transform.position += spellMovement;
             foreach(GameObject entity in entitiesHit)
             {
                 entity.transform.position += spellMovement/2;
             }
         }
-        else if (gameObject.transform.position != target)
+        else if (transform.position != target)
         {
             foreach (GameObject entity in entitiesHit)
             {
-                entity.transform.position += (target - gameObject.transform.position)/2;
+                entity.transform.position += (target - transform.position)/2;
             }
-            gameObject.transform.position = target;
+            transform.position = target;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if(OnTriggerEnter2DBase(collider))
         {
-            entitiesHit.Add(collider.gameObject);
-            StartCoroutine(DamageEntity(collider));
+            StartCoroutine(ContinuousEffect(collider));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        entitiesHit.Remove(collider.gameObject);
-    }
-
-    IEnumerator DamageEntity(Collider2D entityCollider)
-    {
-        EntityBase entity = entityCollider.gameObject.GetComponent<EntityBase>();
-        while (entityCollider != null && entitiesHit.Contains(entityCollider.gameObject))
-        {
-            entity.TakeDamage(damagePerTick);
-            entity.ApplyDebuff(Debuff.Slow, effectTick, slowStrength);
-            yield return new WaitForSeconds(effectTick);
-        }
-    }
-
-    IEnumerator EndSpell(float lifetime)
-    {
-        yield return new WaitForSeconds(lifetime);
-        GetComponent<Animator>().SetBool("isDone", true);
-    }
-
-    void DestroySpell()
-    {
-        Destroy(gameObject);
+        OnTriggerExit2DBase(collider);
     }
 }
