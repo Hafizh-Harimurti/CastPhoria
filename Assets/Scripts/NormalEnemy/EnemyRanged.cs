@@ -22,33 +22,27 @@ public class EnemyRanged : EntityBase
     // Update is called once per frame
     void Update()
     {
-        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
-        OnUpdate();
-        attackTimerCurrent += Time.deltaTime;
-        if (attackTimerCurrent >= attackTimer)
+        if (isActive)
         {
-            animator.SetBool("isAttacking", true);
-            attackTimerCurrent = 0;
-        }
-        Move();
-    }
-
-    void Move()
-    {
-        if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
-        if(isActive)
-        {
+            if (Vector2.Distance(transform.position, targetTransform.position) > 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
+                animator.SetBool("isMoving", true);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
+            if (attackTimerCurrent >= attackTimer)
+            {
+                animator.SetBool("isAttacking", true);
+                attackTimerCurrent = 0;
+            }
             relativePos = targetTransform.position - transform.position;
             spriteRenderer.flipX = relativePos.x < 0;
         }
+        attackTimerCurrent += Time.deltaTime;
+        OnUpdate();
     }
 
     void Attack()

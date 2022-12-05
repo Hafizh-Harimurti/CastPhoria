@@ -9,11 +9,10 @@ public class SoundManagerScript : MonoBehaviour
     static AudioSource audioSrc;
     void Start()
     {
-        playerHitSound = SFX.Load<AudioClip>("PlayerHit");
-        playerCastSound = SFX.Load<AudioClip>("PlayerHit");
-        playerDeathSound = SFX.Load<AudioClip>("PlayerDying");
-
-
+        audioSrc = GetComponent<AudioSource>();
+        playerHitSound = Resources.Load<AudioClip>("PlayerHit");
+        playerCastSound = Resources.Load<AudioClip>("PlayerHit");
+        playerDeathSound = Resources.Load<AudioClip>("PlayerDying");
     }
 
     // Update is called once per frame
@@ -22,19 +21,8 @@ public class SoundManagerScript : MonoBehaviour
         
     }
     
-    public static void PlaySound (string clip)
+    public static void PlaySound (AudioClip clip)
     {
-        switch (clip)
-        {
-            case "playerHit":
-                audioSrc.PlayOneShot(playerHitSound);
-                break;
-            case "playerCast":
-                audioSrc.PlayOneShot(playerCastSound); 
-                break;
-            case "playerDies":
-                audioSrc.PlayOneShot(playerDeathSound); 
-                break;
-        }
+        audioSrc.PlayOneShot(clip);
     }
 }

@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 3981536523492064237}
   - component: {fileID: 3287101200549085258}
   - component: {fileID: 8796622165998395004}
+  - component: {fileID: 4889962493265647086}
   m_Layer: 0
   m_Name: GreedCoin
   m_TagString: Untagged
@@ -290,11 +291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerTag: Enemy
-  ownerPos: {x: 0.64769614, y: -0.60595584, z: 0}
+  ownerPos: {x: -1.961669, y: -1.8796031, z: 0}
   slowStrength: 0
   slowDuration: 0
   stunDuration: 0
-  target: {x: -0.2475158, y: -0.37955785, z: 0.31161007}
+  target: {x: -2.2167318, y: -4.205344, z: 0}
   direction: {x: 0, y: 0, z: 0}
   moveSpeed: 1.5
   damage: 10
@@ -330,3 +331,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33011854, y: 0.24301815}
   m_EdgeRadius: 0
+--- !u!50 &4889962493265647086
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955183162158709274}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

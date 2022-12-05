@@ -14,7 +14,7 @@ public class ProjectileSlash : ProjectileBase
     // Update is called once per frame
     void Update()
     {
-        transform.position += Time.deltaTime * moveSpeed * direction;
+        transform.position += Time.deltaTime * moveSpeed * transform.right;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

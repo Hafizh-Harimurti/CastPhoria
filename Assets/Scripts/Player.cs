@@ -92,12 +92,27 @@ public class Player : EntityBase
         healthBar.SetHealth(health);
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        if (health <= 0)
+        {
+            if (!isDead)
+            {
+                SoundManagerScript.PlaySound(SoundManagerScript.playerHitSound);
+            }
+            else
+            {
+                SoundManagerScript.PlaySound(SoundManagerScript.playerDeathSound);
+            }
+        }
+    }
+
     void PlayerInput()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            elementSpell.CastElements(gameObject, targetPos);
-            SoundManagerScript.PlaySound(playerCastSound);
+            if(elementSpell.CastElements(gameObject, targetPos)) SoundManagerScript.PlaySound(SoundManagerScript.playerCastSound);
         }
         if (Input.GetKeyDown(KeyCode.U))
         {

@@ -102,12 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 50
-  normalMoveSpeed: 1
+  normalMoveSpeed: 0.75
   debuffActivationTimer: 0
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
   projectile: {fileID: 4679663405919648988, guid: 13254f550c431f247a398d1a059a57e4, type: 3}
-  target: {fileID: 8573529820924502820, guid: 16b7cb39d70886341b060b0f28dda6a2, type: 3}
+  target: {fileID: 6403998068026434758, guid: 7085d16b430569a418df9c50443125d1, type: 3}
   attackTimer: 5
 --- !u!95 &8479624078258452130
 Animator:

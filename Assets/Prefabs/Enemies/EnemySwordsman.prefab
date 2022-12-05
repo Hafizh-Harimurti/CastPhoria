@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: -8601018162163035674}
   - component: {fileID: -2136015677685901610}
   - component: {fileID: 4954131983392752252}
-  m_Layer: 0
+  - component: {fileID: 1337644667574411480}
+  m_Layer: 6
   m_Name: EnemySwordsman
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8186136093420731630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.442, y: -1.038, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,14 +121,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 5
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4954131983392752252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,14 +141,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c59e5fa21aace84f9dc47015e2953e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  normalMoveSpeed: 1
+  health: 0
+  maxHealth: 50
+  normalMoveSpeed: 0.75
   debuffActivationTimer: 1
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
-  speed: 0.5
+  speed: 1
   projectile: {fileID: 3287638854776114357, guid: 21d3e60133b345a429ca71139a7644bf, type: 3}
   target: {fileID: 6403998068026434758, guid: 7085d16b430569a418df9c50443125d1, type: 3}
-  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
-  attackTimer: 2
+  attackTimer: 5
+--- !u!61 &1337644667574411480
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186136093420731630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0045, y: 0.157}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.06}
+    oldSize: {x: 0.5, y: 0.3708333}
+    newSize: {x: 0.5, y: 0.3708333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1516466, y: 0.30569407}
+  m_EdgeRadius: 0

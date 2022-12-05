@@ -12,7 +12,6 @@ public abstract class EntityBase : MonoBehaviour
     public Vector3 targetPos;
     public bool isDead;
 
-    protected bool isGhost;
     protected bool isActive;
     protected bool isInvulnerable;
     protected bool isStunned;
@@ -34,7 +33,6 @@ public abstract class EntityBase : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        isGhost = true;
         isActive = false;
         isInvulnerable = true;
         isDead = false;
@@ -67,7 +65,7 @@ public abstract class EntityBase : MonoBehaviour
         transform.position += destination;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -85,6 +83,7 @@ public abstract class EntityBase : MonoBehaviour
         debuffs = new List<DebuffInfo>();
         removedDebuffs = new List<DebuffInfo>();
         isDebuffCoroutineOn = false;
+        isStunned = false;
         damageOverTime = 0;
         moveSpeed = normalMoveSpeed;
         previousAnimatorSpeed = 0;
@@ -216,18 +215,6 @@ public abstract class EntityBase : MonoBehaviour
         damageOverTime -= damage;
     }
 
-    void DisableGhost()
-    {
-        isGhost = false;
-        isInvulnerable = false;
-    }
-
-    void EnableGhost()
-    {
-        isGhost = true;
-        isInvulnerable = true;
-    }
-
     void DisableEntity()
     {
         isActive = false;
@@ -238,9 +225,8 @@ public abstract class EntityBase : MonoBehaviour
         isActive = true;
     }
 
-    public void SetAsSpawned()
+    protected void SetAsSpawned()
     {
-        isGhost = false;
         isInvulnerable = false;
         isActive = true;
     }

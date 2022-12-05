@@ -98,16 +98,16 @@ public class ElementSpell : MonoBehaviour
         }
     }
 
-    public void CastElements(GameObject caster, Vector3 target, int spellLevel = 1)
+    public bool CastElements(GameObject caster, Vector3 target, int spellLevel = 1)
     {
-        if (elements.All(e => e == Element.None)) return;
+        if (elements.All(e => e == Element.None)) return false;
         Array.Clear(elementCounts, 0, elementCounts.Length);
         for (int i = 0; i < elements.Length; i++)
         {
             if (elements[i] == Element.None)
             {
                 CastFailcast(caster);
-                return;
+                return true;
             }
             elementCounts[(int)elements[i]-1]++;
             elements[i] = Element.None;
@@ -124,7 +124,7 @@ public class ElementSpell : MonoBehaviour
                             if (spellCooldownTimer[0, (int)finalElement - 1] > 0)
                             {
                                 CastFailcast(caster);
-                                return;
+                                return true;
                             }
                             else
                             {
@@ -137,7 +137,7 @@ public class ElementSpell : MonoBehaviour
                             if (spellCooldownTimer[1, (int)finalElement - 1] > 0)
                             {
                                 CastFailcast(caster);
-                                return;
+                                return true;
                             }
                             else
                             {
@@ -150,7 +150,7 @@ public class ElementSpell : MonoBehaviour
                             if (spellCooldownTimer[2, (int)finalElement - 1] > 0)
                             {
                                 CastFailcast(caster);
-                                return;
+                                return true;
                             }
                             else
                             {
@@ -163,7 +163,7 @@ public class ElementSpell : MonoBehaviour
                             if (spellCooldownTimer[3, (int)finalElement - 1] > 0)
                             {
                                 CastFailcast(caster);
-                                return;
+                                return true;
                             }
                             else
                             {
@@ -174,14 +174,14 @@ public class ElementSpell : MonoBehaviour
                 }
                 elementBar.ResetElements();
                 previousElementCounts = elementCounts;
-                return;
+                return true;
             }
         }
         finalElement = (Element)(Array.FindIndex(elementCounts, e => e == 0) + 1);
         if (spellCooldownTimer[4, (int)finalElement - 1] > 0)
         {
             CastFailcast(caster);
-            return;
+            return true;
         }
         else
         {
@@ -189,7 +189,7 @@ public class ElementSpell : MonoBehaviour
         }
         elementBar.ResetElements();
         previousElementCounts = elementCounts;
-        return;
+        return true;
     }
 
     void CastFailcast(GameObject caster)
