@@ -5,41 +5,65 @@ using UnityEngine;
 
 public class EnemySwordsman : EntityBase
 {
-    
+
     // Start is called before the first frame update
     public float speed;
-    private Transform target;
+    public GameObject projectile;
+    public GameObject target;
+    public GameState gameState;
+    private Transform targetTransform;
     private Animator anim;
-    
+    private float relativePosX;
+    public float attackTimer = 5;
+    private float attackTimerCurrent;
+
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        
+        targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        attackTimerCurrent = 0;
+        OnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) > 0.2 )
+        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
+        OnUpdate();
+        attackTimerCurrent += Time.deltaTime;
+        if (attackTimerCurrent >= attackTimer)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            animator.SetBool("isAttacking", true);
+            attackTimerCurrent = 0;
         }
+        Move();
     }
 
     void Move()
     {
-        relativePos = targetPos - transform.position;
-        if (relativePos.x < 0)
+        if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
         {
-            spriteRenderer.flipX = true;
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+            animator.SetBool("isMoving", true);
         }
-        else if (relativePos.x > 0)
+        else
         {
-            spriteRenderer.flipX = false;
+            animator.SetBool("isMoving", false);
         }
+        relativePos = targetTransform.position - transform.position;
+        relativePosX = relativePos.x;
+
+        spriteRenderer.flipX = relativePosX < 0;
     }
-    void enemyRun(bool running)
+
+    void Attack()
     {
-        
+
+        projectile.GetComponent<ProjectileArrow>().ownerTag = gameObject.tag;
+        float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
+        Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        animator.SetBool("isAttacking", false);
     }
+
+
+
 }
