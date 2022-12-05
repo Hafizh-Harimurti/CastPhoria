@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4558856117556846224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.388425, y: 1.1444376, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerTag: Player
-  ownerPos: {x: 1.6937829, y: 0.9653321, z: 0}
+  ownerPos: {x: -0.43937385, y: -0.58973575, z: 0}
   slowStrength: 0
   slowDuration: 0
   stunDuration: 0.5
@@ -144,10 +144,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2132778, y: 0.15507048}
+  m_Offset: {x: 0.101, y: 0.146}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.35, y: 0.03}
     oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5

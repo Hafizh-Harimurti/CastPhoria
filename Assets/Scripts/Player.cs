@@ -6,10 +6,11 @@ public class Player : EntityBase
 {
     public float castRange;
     public HealthBar healthBar;
-    public GameManager gameState;
     public float healTimer = 2;
 
     [SerializeField]
+    private GameObject spellTargetPrefab;
+
     private GameObject spellTarget;
 
     private float moveX;
@@ -23,6 +24,7 @@ public class Player : EntityBase
     void Start()
     {
         OnStart();
+        spellTarget = Instantiate(spellTargetPrefab, transform.position, Quaternion.identity);
         healTimerCurrent = 0;
         healthBar.SetMaxHealth(maxHealth);
         elementSpell = GetComponent<ElementSpell>();
@@ -115,6 +117,6 @@ public class Player : EntityBase
     }
     void GameOverLose()
     {
-        gameState.SceneOver(false);
+        GameManager.Instance.SceneOver(false);
     }
 }

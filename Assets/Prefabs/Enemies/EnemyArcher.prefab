@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -348111775
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1752364776, guid: f8acd91b28e663c4497604008161862d, type: 3}
+  m_Sprite: {fileID: 1578884765, guid: ebd5cb110e1994d4fae8acbb81b352cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,14 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 50
-  normalMoveSpeed: 2
+  normalMoveSpeed: 1
   debuffActivationTimer: 0
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
-  speed: 1
   projectile: {fileID: 4679663405919648988, guid: 13254f550c431f247a398d1a059a57e4, type: 3}
   target: {fileID: 8573529820924502820, guid: 16b7cb39d70886341b060b0f28dda6a2, type: 3}
-  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
   attackTimer: 5
 --- !u!95 &8479624078258452130
 Animator:
@@ -144,10 +142,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00074981153, y: -0.025783107}
+  m_Offset: {x: 0.00074981153, y: 0.182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.175}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5

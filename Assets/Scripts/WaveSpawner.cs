@@ -47,19 +47,26 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave(waves[currentWave]));
             nextWave++;
         }
-        else if (!GameManager.Instance.isBossAlive && GameManager.Instance.currentWave.name.Contains("Boss"))
+        else if (GameManager.Instance.enemiesLeft <= 0)
+        {
+            if (nextWave < waves.Length)
+            {
+                currentWave = nextWave;
+                isReady = true;
+            }
+            else
+            {
+                GameManager.Instance.SceneOver(true);
+            }
+        }
+        if (!GameManager.Instance.isBossAlive && !GameManager.Instance.currentWave.name.Contains("Normal"))
         {
             bossBar.SetActive(false);
             foreach (EntityBase entity in GameManager.Instance.enemiesAlive)
             {
                 entity.isDead = true;
             }
-            GameManager.Instance.SceneOver(true);
-        }
-        else if (!GameManager.Instance.currentWave.name.Contains("Boss") && GameManager.Instance.enemiesLeft  <= 0)
-        {
-            currentWave = nextWave;
-            isReady = true;
+            
         }
     }
 
@@ -67,7 +74,7 @@ public class WaveSpawner : MonoBehaviour
     {
         GameManager.Instance.currentWave = wave;
         GameManager.Instance.enemiesLeft = wave.amounts.Sum();
-        if (wave.name == "Boss Wave")
+        if (!wave.name.Contains("Normal"))
         {
             GameManager.Instance.isBossAlive = true;
             bossBar.SetActive(true);

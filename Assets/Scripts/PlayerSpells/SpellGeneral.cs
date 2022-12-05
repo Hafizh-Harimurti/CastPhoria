@@ -93,7 +93,7 @@ public class SpellGeneral : ScriptableObject
         spellDetail.damage = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
-        spellDetail.gatherSpeed = 0.2f;
+        spellDetail.gatherSpeed = 0.3f;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[3];
     }

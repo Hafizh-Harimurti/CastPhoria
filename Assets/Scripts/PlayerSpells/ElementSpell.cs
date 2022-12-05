@@ -10,30 +10,29 @@ public class ElementSpell : MonoBehaviour
     public ElementBar elementBar;
     public CooldownNotification cooldownNotification;
 
-    [SerializeField]
-    private SpellFire spellFire;
-    [SerializeField]
-    private SpellWater spellWater;
-    [SerializeField]
-    private SpellAir spellAir;
-    [SerializeField]
-    private SpellGround spellGround;
-    [SerializeField]
-    private SpellGeneral spellGeneral;
-    [SerializeField]
-    private SpellFailcast spellFailcast;
+    [NonSerialized]
+    public int[] previousElementCounts;
+
+    public SpellFire spellFire;
+    public SpellWater spellWater;
+    public SpellAir spellAir;
+    public SpellGround spellGround;
+    public SpellGeneral spellGeneral;
+    public SpellFailcast spellFailcast;
+
+    public float[,] spellCooldownTimer;
 
     private Element finalElement;
     private Element[] elements;
     private float[] elementCooldowns;
     private int[] elementCounts;
-    private float[,] spellCooldownTimer;
 
     void Start()
     {
         elements = new Element[3];
         elementCooldowns = new float[4];
         elementCounts = new int[4];
+        previousElementCounts = new int[4] { 0, 0, 0, 0 };
         spellCooldownTimer = new float[5, 4];
         for (int i = 0; i < 4; i++) elementCooldowns[i] = 0;
         for (int i = 0; i < 5; i++) for (int j = 0; j < 4; j++) spellCooldownTimer[i, j] = 0;
@@ -174,6 +173,7 @@ public class ElementSpell : MonoBehaviour
                         }
                 }
                 elementBar.ResetElements();
+                previousElementCounts = elementCounts;
                 return;
             }
         }
@@ -188,6 +188,7 @@ public class ElementSpell : MonoBehaviour
             spellCooldownTimer[4, (int)finalElement - 1] += spellGeneral.CastSpell(finalElement, caster, target, spellLevel);
         }
         elementBar.ResetElements();
+        previousElementCounts = elementCounts;
         return;
     }
 

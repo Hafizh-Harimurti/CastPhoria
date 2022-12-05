@@ -14,14 +14,13 @@ public class BossSloth : EntityBase
     private GameObject target;
     private float cooldownTimer;
     private Vector3 vectorToTarget;
-    // Start is called before the first frame update
+
     void Start()
     {
         OnStart();
         cooldownTimer = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target == null)
@@ -37,6 +36,7 @@ public class BossSloth : EntityBase
         if (isActive)
         {
             vectorToTarget = target.transform.position - transform.position;
+            spriteRenderer.flipX = vectorToTarget.x < 0;
             targetPos = vectorToTarget.magnitude > castRange ? (transform.position + vectorToTarget.normalized * castRange) : target.transform.position;
             if (cooldownTimer < timeBetweenSpell)
             {

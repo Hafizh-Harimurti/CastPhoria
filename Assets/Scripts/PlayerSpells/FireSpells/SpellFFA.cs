@@ -36,7 +36,6 @@ public class SpellFFA : SpellBase
         EntityBase entity;
         foreach (GameObject otherGameObject in entitiesHit)
         {
-            Debug.Log(otherGameObject.name);
             entity = otherGameObject.GetComponent<EntityBase>();
             entity.TakeDamage(damage);
             knockbackForce = (otherGameObject.GetComponent<BoxCollider2D>().bounds.center - ownerPos).normalized * knockbackStrength;

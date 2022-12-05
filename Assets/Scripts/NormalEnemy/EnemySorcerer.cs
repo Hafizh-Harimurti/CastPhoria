@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class EnemySorcerer : EntityBase
 {
-
-    // Start is called before the first frame update
-    public float speed;
     private Transform targetTransform;
     private float relativePosX;
 
@@ -27,17 +24,18 @@ public class EnemySorcerer : EntityBase
     {
         if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
             animator.SetBool("isMoving", true);
         }
         else
         {
             animator.SetBool("isMoving", false);
         }
-        relativePosX = targetTransform.position.x - transform.position.x;
-
-        spriteRenderer.flipX = relativePosX < 0;
-
+        if(isActive)
+        {
+            relativePosX = targetTransform.position.x - transform.position.x;
+            spriteRenderer.flipX = relativePosX < 0;
+        }
         attackTimerCurrent += Time.deltaTime;
         if(attackTimerCurrent >= attackTimer)
         {
@@ -51,7 +49,9 @@ public class EnemySorcerer : EntityBase
     {
         fireball.GetComponent<ProjectileFireball>().ownerTag = gameObject.tag;
         fireball.GetComponent<ProjectileFireball>().direction = (targetTransform.position - transform.position).normalized;
-        Instantiate(fireball, transform.position, Quaternion.identity);
+        Vector3 shootOrigin = transform.position;
+        shootOrigin.y = GetComponent<BoxCollider2D>().bounds.center.y;
+        Instantiate(fireball, shootOrigin, Quaternion.identity);
         animator.SetBool("isAttacking", false);
     }
 

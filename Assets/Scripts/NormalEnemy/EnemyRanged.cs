@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class EnemyRanged : EntityBase
 {
-    public float speed;
     public GameObject projectile;
     public GameObject target;
     private Transform targetTransform;
 
     public float attackTimer = 5;
     private float attackTimerCurrent;
-    private float relativePosX;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,25 +37,27 @@ public class EnemyRanged : EntityBase
     {
         if (Vector2.Distance(transform.position, targetTransform.position) > 1 && isActive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
             animator.SetBool("isMoving", true);
         }
         else
         {
             animator.SetBool("isMoving", false);
         }
-        relativePos = targetTransform.position - transform.position;
-        relativePosX = relativePos.x;
-
-        spriteRenderer.flipX = relativePosX < 0;
+        if(isActive)
+        {
+            relativePos = targetTransform.position - transform.position;
+            spriteRenderer.flipX = relativePos.x < 0;
+        }
     }
 
     void Attack()
     {
-
         projectile.GetComponent<ProjectileArrow>().ownerTag = gameObject.tag;
         float angle = Mathf.Atan2(relativePos.y, relativePos.x) * Mathf.Rad2Deg;
-        Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+        Vector3 shootOrigin = transform.position;
+        shootOrigin.y = GetComponent<BoxCollider2D>().bounds.center.y;
+        Instantiate(projectile, shootOrigin, Quaternion.AngleAxis(angle, Vector3.forward));
         animator.SetBool("isAttacking", false);
     }
 

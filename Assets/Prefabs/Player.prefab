@@ -129,8 +129,8 @@ MonoBehaviour:
   isDead: 0
   castRange: 1
   healthBar: {fileID: 0}
-  gameState: {fileID: 0}
-  spellTarget: {fileID: 0}
+  healTimer: 5
+  spellTargetPrefab: {fileID: 3502276536226911299, guid: 1975e1ffec6a11a4f96ba2a6d837960e, type: 3}
 --- !u!50 &3838856286282099684
 Rigidbody2D:
   serializedVersion: 4
@@ -192,6 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementBar: {fileID: 0}
   cooldownNotification: {fileID: 0}
+  spellFire: {fileID: 11400000, guid: 3e8ec48b10a95a04aae980d336c5d897, type: 2}
+  spellWater: {fileID: 11400000, guid: 735d9733dd86394459ee50946051567f, type: 2}
   spellAir: {fileID: 11400000, guid: 4e121d21d4778624491cf2be8cd9d5b2, type: 2}
   spellGround: {fileID: 11400000, guid: a95b5f320e135c040b647b121740e4a7, type: 2}
   spellGeneral: {fileID: 11400000, guid: f21e90dc6c6b7854c8902cb7ea3a435c, type: 2}

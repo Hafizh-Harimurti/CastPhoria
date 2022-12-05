@@ -129,379 +129,379 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Greed_Idle_0
+      name: Greed_Idle 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11b75360fa1e88b448a10ae4da4cb717
-      internalID: -1838689061
+      spriteID: 4751235858fb3e04bb914dc314cba1aa
+      internalID: -2005394529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_1
+      name: Greed_Idle 1_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f437d2350a04614e9ade4e61c54eaff
-      internalID: 263023823
+      spriteID: e5a7ab4afe6ca5f4eb5d622a75230ea3
+      internalID: 1870504440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_2
+      name: Greed_Idle 1_2
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b616a3cf205eec4aa9edcc34099b436
-      internalID: 614696933
+      spriteID: 439ddebbca3887c489193b55bcac6a9e
+      internalID: 607484411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_3
+      name: Greed_Idle 1_3
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aacd08f275857749b8a75a0ecd12b85
-      internalID: 1056187046
+      spriteID: d4abce29d6388024cad130b95216b5cf
+      internalID: -692175459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_4
+      name: Greed_Idle 1_4
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0bca2e2c64e00b4a835caf8f73fba22
-      internalID: -463967062
+      spriteID: ef4f457beb7aa1d489660efb26de68a0
+      internalID: 1173322242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_5
+      name: Greed_Idle 1_5
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09b408bc86eb8d84f9ee3e46594f8bc7
-      internalID: -1358437746
+      spriteID: 06d557ec13f3f5a45818f8febbb600af
+      internalID: -1835711229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_6
+      name: Greed_Idle 1_6
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82aa79176cf13d941a7e5069f428e33a
-      internalID: 1525652516
+      spriteID: 276a919a4a267914381c8f118f4daecb
+      internalID: 246923113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_7
+      name: Greed_Idle 1_7
       rect:
         serializedVersion: 2
         x: 896
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd9dec4c4683dc499caf3a06417e4d3
-      internalID: 1821301958
+      spriteID: e0e896176c94c914abf25c136d57e713
+      internalID: 1193452116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_8
+      name: Greed_Idle 1_8
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1911ef4f2c809a2489ce770f910182a4
-      internalID: 923570326
+      spriteID: abf5bb938aa4862408ca1f5197eca21e
+      internalID: -120254701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_9
+      name: Greed_Idle 1_9
       rect:
         serializedVersion: 2
         x: 1152
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cb0c4d88c3967945b953ef4f431244c
-      internalID: 584517040
+      spriteID: 694c9de38760cd54baa6552171801020
+      internalID: -872055850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_10
+      name: Greed_Idle 1_10
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43e598d656994eb4db0ce1d5fddfb29b
-      internalID: 2024552431
+      spriteID: b1f44e0b17e84b241a7c4700b6833e59
+      internalID: -489389856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_11
+      name: Greed_Idle 1_11
       rect:
         serializedVersion: 2
         x: 1408
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3d489655966b1247ae5ca8b8c8deba4
-      internalID: -341916215
+      spriteID: 97683c628b8c07b48aa7747b20d6001a
+      internalID: -1214002785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_12
+      name: Greed_Idle 1_12
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f53bac7a50ae76144b1c2d9d1fe0f444
-      internalID: -279048173
+      spriteID: 2310eb2657140fd4386ba351f4e6275c
+      internalID: 1665945215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_13
+      name: Greed_Idle 1_13
       rect:
         serializedVersion: 2
         x: 1664
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec3502e898610f1409a54930077bb7b8
-      internalID: 2129095287
+      spriteID: 73ad9b97cefe32f49a1781daa63e4e02
+      internalID: 2098675008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_14
+      name: Greed_Idle 1_14
       rect:
         serializedVersion: 2
         x: 1792
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aceb8494d0fb12144b00188f295e6ada
-      internalID: 923468505
+      spriteID: fff608d196007e94f8b584f458bac119
+      internalID: -88040388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_15
+      name: Greed_Idle 1_15
       rect:
         serializedVersion: 2
         x: 1920
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64ff49e427683d04c82b5a7ec818bc78
-      internalID: 914966988
+      spriteID: e1b7c30df7ad3aa47a25a91ac4589115
+      internalID: -1754408490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_16
+      name: Greed_Idle 1_16
       rect:
         serializedVersion: 2
         x: 2048
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6aa81d2406da9e744acc394053e0b741
-      internalID: -1506371361
+      spriteID: f34457eb390b9724faa9da89ede625d3
+      internalID: -323497571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greed_Idle_17
+      name: Greed_Idle 1_17
       rect:
         serializedVersion: 2
         x: 2176
         y: 0
         width: 128
         height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5a9c1cdfc437674eadaa5de65605b05
-      internalID: -11188538
+      spriteID: 1b7f1f24ef6c2454cba2407b10ec76ec
+      internalID: 254606942
       vertices: []
       indices: 
       edges: []
@@ -517,24 +517,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Greed_Idle_7: 1821301958
-      Greed_Idle_16: -1506371361
-      Greed_Idle_10: 2024552431
-      Greed_Idle_17: -11188538
-      Greed_Idle_8: 923570326
-      Greed_Idle_14: 923468505
-      Greed_Idle_1: 263023823
-      Greed_Idle_5: -1358437746
-      Greed_Idle_6: 1525652516
-      Greed_Idle_4: -463967062
-      Greed_Idle_3: 1056187046
-      Greed_Idle_15: 914966988
-      Greed_Idle_0: -1838689061
-      Greed_Idle_11: -341916215
-      Greed_Idle_2: 614696933
-      Greed_Idle_13: 2129095287
-      Greed_Idle_9: 584517040
-      Greed_Idle_12: -279048173
+      Greed_Idle 1_17: 254606942
+      Greed_Idle 1_14: -88040388
+      Greed_Idle 1_12: 1665945215
+      Greed_Idle 1_15: -1754408490
+      Greed_Idle 1_3: -692175459
+      Greed_Idle 1_7: 1193452116
+      Greed_Idle 1_16: -323497571
+      Greed_Idle 1_10: -489389856
+      Greed_Idle 1_11: -1214002785
+      Greed_Idle 1_9: -872055850
+      Greed_Idle 1_8: -120254701
+      Greed_Idle 1_4: 1173322242
+      Greed_Idle 1_6: 246923113
+      Greed_Idle 1_1: 1870504440
+      Greed_Idle 1_5: -1835711229
+      Greed_Idle 1_2: 607484411
+      Greed_Idle 1_13: 2098675008
+      Greed_Idle 1_0: -2005394529
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

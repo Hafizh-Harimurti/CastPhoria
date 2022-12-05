@@ -57,7 +57,7 @@ public class SpellWater : ScriptableObject
         spellDetail.damagePerTick = 3 + (spellLevel - 1) * 1;
         spellDetail.effectTick = 0.5f;
         spellDetail.slowStrength = 3 + (spellLevel - 1) * 0.75f;
-        spellDetail.slowDuration = 0.5f;
+        spellDetail.slowDuration = 1;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[1];
     }
@@ -71,7 +71,7 @@ public class SpellWater : ScriptableObject
         spellDetail.damage = 3 + (spellLevel - 1) * 1;
         spellDetail.gatherSpeed = 0.1f;
         spellDetail.slowStrength = 2 + (spellLevel - 1) * 0.5f;
-        spellDetail.slowDuration = 0.5f;
+        spellDetail.slowDuration = 1;
         spellDetail.lifetime = 3 + (spellLevel - 1) * 0.5f;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[2];
@@ -86,7 +86,7 @@ public class SpellWater : ScriptableObject
         spellDetail.damage = 10 + (spellLevel - 1) * 2.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;
         spellDetail.knockbackStrength = 0.2f;
-        spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
+        spellDetail.slowDuration = 2.5f + (spellLevel - 1) * 0.6f;
         spellDetail.slowStrength = 3;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[3];
