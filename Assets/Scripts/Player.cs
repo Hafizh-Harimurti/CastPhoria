@@ -6,7 +6,7 @@ public class Player : EntityBase
 {
     public float castRange;
     public HealthBar healthBar;
-    public GameState gameState;
+    public GameManager gameState;
     public float healTimer = 2;
 
     [SerializeField]
@@ -115,6 +115,6 @@ public class Player : EntityBase
     }
     void GameOverLose()
     {
-        gameState.GameOver(false);
+        gameState.SceneOver(false);
     }
 }

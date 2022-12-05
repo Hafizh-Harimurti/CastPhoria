@@ -8,7 +8,6 @@ public class EnemyRanged : EntityBase
     public float speed;
     public GameObject projectile;
     public GameObject target;
-    public GameState gameState;
     private Transform targetTransform;
 
     public float attackTimer = 5;
@@ -64,7 +63,6 @@ public class EnemyRanged : EntityBase
 
     private void OnDestroy()
     {
-        gameState.enemiesAlive.Remove(this);
-        gameState.enemiesLeft--;
+        GameManager.Instance.RemoveEnemy(this);
     }
 }

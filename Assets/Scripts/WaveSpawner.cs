@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static WaveSpawner;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -19,8 +18,7 @@ public class WaveSpawner : MonoBehaviour
     private int currentWave = 0;
     private int nextWave = 0;
     private bool isReady;
-    [SerializeField]
-    private GameState gameState;
+
     [SerializeField]
     private GameObject bossBar;
 
@@ -49,16 +47,16 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave(waves[currentWave]));
             nextWave++;
         }
-        else if (!gameState.isBossAlive && gameState.currentWave.name.Contains("Boss"))
+        else if (!GameManager.Instance.isBossAlive && GameManager.Instance.currentWave.name.Contains("Boss"))
         {
             bossBar.SetActive(false);
-            foreach (EntityBase entity in gameState.enemiesAlive)
+            foreach (EntityBase entity in GameManager.Instance.enemiesAlive)
             {
                 entity.isDead = true;
             }
-            gameState.GameOver(true);
+            GameManager.Instance.SceneOver(true);
         }
-        else if (!gameState.currentWave.name.Contains("Boss") && gameState.enemiesLeft  <= 0)
+        else if (!GameManager.Instance.currentWave.name.Contains("Boss") && GameManager.Instance.enemiesLeft  <= 0)
         {
             currentWave = nextWave;
             isReady = true;
@@ -67,11 +65,11 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave wave)
     {
-        gameState.currentWave = wave;
-        gameState.enemiesLeft = wave.amounts.Sum();
+        GameManager.Instance.currentWave = wave;
+        GameManager.Instance.enemiesLeft = wave.amounts.Sum();
         if (wave.name == "Boss Wave")
         {
-            gameState.isBossAlive = true;
+            GameManager.Instance.isBossAlive = true;
             bossBar.SetActive(true);
         }
         while(wave.amounts.Count > 0)

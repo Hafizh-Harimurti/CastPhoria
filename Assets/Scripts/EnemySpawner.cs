@@ -9,8 +9,6 @@ public class EnemySpawner : MonoBehaviour
     public float spawnXmax = 2;
     public float spawnYmax = 2;
 
-    [SerializeField]
-    private GameState gameState;
     private Vector3 spawnPos;
     private GameObject enemySpawned;
 
@@ -20,6 +18,6 @@ public class EnemySpawner : MonoBehaviour
         spawnPos.x += Random.Range(spawnXmin, spawnXmax);
         spawnPos.y += Random.Range(spawnYmin, spawnYmax);
         enemySpawned = Instantiate(enemy, spawnPos, Quaternion.identity);
-        gameState.enemiesAlive.Add(enemySpawned.GetComponent<EntityBase>());
+        GameManager.Instance.AddEnemy(enemySpawned.GetComponent<EntityBase>());
     }
 }

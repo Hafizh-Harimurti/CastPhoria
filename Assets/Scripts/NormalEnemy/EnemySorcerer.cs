@@ -11,7 +11,6 @@ public class EnemySorcerer : EntityBase
     private Transform targetTransform;
     private float relativePosX;
 
-    public GameState gameState;
     public GameObject fireball;
     public float attackTimer = 5;
     private float attackTimerCurrent;
@@ -58,9 +57,6 @@ public class EnemySorcerer : EntityBase
 
     private void OnDestroy()
     {
-        gameState.enemiesAlive.Remove(this);
-        gameState.enemiesLeft--;
+        GameManager.Instance.RemoveEnemy(this);
     }
-
-
 }

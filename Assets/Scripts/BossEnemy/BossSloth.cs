@@ -6,7 +6,6 @@ public class BossSloth : EntityBase
 {
     public float timeBetweenSpell = 5;
     public float castRange = 2;
-    public GameState gameState;
 
     [SerializeField]
     private SpellSloth spellSloth;
@@ -114,9 +113,9 @@ public class BossSloth : EntityBase
         }
     }
 
-    public override void KillEntity()
+    private void OnDestroy()
     {
-        gameState.isBossAlive = false;
-        Destroy(gameObject);
+        GameManager.Instance.isBossAlive = false;
+        GameManager.Instance.RemoveEnemy(this);
     }
 }

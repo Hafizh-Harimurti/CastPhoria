@@ -11,6 +11,9 @@ public class SpellNoFriends : SpellBase
     public float spawnYMax = 1;
 
     [SerializeField]
+    private GameManager gameState;
+
+    [SerializeField]
     private List<GameObject> enemies = new List<GameObject>();
 
     private Vector3 spawnOffset;
@@ -20,7 +23,9 @@ public class SpellNoFriends : SpellBase
         for(int i = 0; i < spawnAmount; i++)
         {
             spawnOffset = new Vector3(Random.Range(spawnXMin, spawnXMax), Random.Range(spawnYMin, spawnYMax), 0);
-            Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position + spawnOffset, Quaternion.identity);
+            GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position + spawnOffset, Quaternion.identity);
+            gameState.enemiesAlive.Add(enemy.GetComponent<EntityBase>());
+            gameState.enemiesLeft++;
         }
         Destroy(gameObject);
     }
