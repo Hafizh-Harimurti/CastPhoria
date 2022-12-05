@@ -95,6 +95,7 @@ public class Player : EntityBase
         if(Input.GetKeyDown(KeyCode.Space))
         {
             elementSpell.CastElements(gameObject, targetPos);
+            SoundManagerScript.PlaySound(playerCastSound);
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
