@@ -9,4 +9,15 @@ public class NavigateMenu : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void SwitchSceneWithTransition(string scene)
+    {
+        NavigationDataHolder.NextSceneToLoad = scene;
+        SceneManager.LoadScene("Transition");
+    }
+
+    public void SetTransitionSceneText(string transitionText)
+    {
+        NavigationDataHolder.TransitionSceneText = transitionText;
+    }
 }

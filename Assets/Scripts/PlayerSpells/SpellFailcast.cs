@@ -21,8 +21,10 @@ public class SpellFailcast : ScriptableObject
     private List<FailcastBase> totalFailcasts;
     private List<DebuffInfo> totalDebuffs;
     private GameObject spell;
+
     public void Failcast(int[] elementCounts, GameObject caster)
     {
+        totalFailcasts = new List<FailcastBase>();
         for(int i = 0; i < 4; i++)
         {
             totalFailcasts.Add(new FailcastBase());
