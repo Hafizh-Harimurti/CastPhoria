@@ -39,7 +39,7 @@ public class SpellGround : ScriptableObject
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
-        spellDetail.damage = 20 + (spellLevel - 1) * 5;
+        spellDetail.damage = 15 + (spellLevel - 1) * 5;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[0];
     }
@@ -55,7 +55,7 @@ public class SpellGround : ScriptableObject
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.slowDuration = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
-        spellDetail.damage = 5 + (spellLevel - 1) * 1;
+        spellDetail.damage = 10 + (spellLevel - 1) * 1;
         spellDetail.direction = (target - castOrigin).normalized;
         spellDetail.moveSpeed = 2.5f;
         spellDetail.lifetime = 5;
@@ -72,7 +72,7 @@ public class SpellGround : ScriptableObject
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.knockbackStrength = 0.25f +(spellLevel - 1) * 0.1f;
-        spellDetail.damage = 5 + (spellLevel - 1) * 1;
+        spellDetail.damage = 10 + (spellLevel - 1) * 1;
         Vector3 spawnSpell = Quaternion.Euler(0, 0, -60) * (target - castOrigin);
         for (int i = 0; i < 3; i++)
         {

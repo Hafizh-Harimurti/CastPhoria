@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -2095120733
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -363398764, guid: 925a99c4ed4873c45bc38fda82f73657, type: 3}
+  m_Sprite: {fileID: -713192226, guid: eee65021048ca9346ad4dbb8f9ec5c20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,8 +178,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b326752d20c4e41aacd0f36f26b5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerTag: 
+  ownerPos: {x: 0, y: 0, z: 0}
+  slowStrength: 0
+  slowDuration: 0
+  stunDuration: 0
+  target: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  moveSpeed: 0
   damage: 60
-  owner: {fileID: 0}
+  damagePerTick: 0
+  effectTick: 0
+  lifetime: 0
 --- !u!1 &1378249775431809888
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +263,7 @@ SpriteRenderer:
   m_SortingLayerID: -2095120733
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1816081378, guid: f89517b904875c64f95b1ae8b6b13d65, type: 3}
+  m_Sprite: {fileID: 210817170, guid: 1a9302c97ac2e3044853047c19e817d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

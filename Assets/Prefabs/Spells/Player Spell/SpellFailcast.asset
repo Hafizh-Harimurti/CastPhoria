@@ -21,8 +21,8 @@ MonoBehaviour:
     damageOrStrength: 1.5
   - element: 3
     duration: 1
-    damageOrStrength: 0.2
+    damageOrStrength: 0.3
   - element: 4
-    duration: 0.2
+    duration: 0.25
     damageOrStrength: 1
   failcastSpell: {fileID: 374279070748465913, guid: 7f20412091941c24398baea709195b12, type: 3}

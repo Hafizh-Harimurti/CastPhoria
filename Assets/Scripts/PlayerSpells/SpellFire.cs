@@ -38,7 +38,7 @@ public class SpellFire : ScriptableObject
         SpellFFF spellDetail = spell.GetComponent<SpellFFF>();
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
-        spellDetail.damage = 40 + (spellLevel - 1) * 10;
+        spellDetail.damage = 25 + (spellLevel - 1) * 10;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[0];
     }
@@ -51,7 +51,7 @@ public class SpellFire : ScriptableObject
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.slowDuration = 3 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
-        spellDetail.damage = 30 + (spellLevel - 1) * 7.5f;
+        spellDetail.damage = 20 + (spellLevel - 1) * 7.5f;
         spellDetail.knockbackStrength = 0.2f;
         Instantiate(spell, target, Quaternion.identity);
         return spellCooldowns[1];
@@ -67,7 +67,7 @@ public class SpellFire : ScriptableObject
         spellDetail.target = target;
         spellDetail.stunDuration = 1 + (spellLevel - 1) * 0.15f;
         spellDetail.knockbackStrength = 0.4f;
-        spellDetail.damage = 30 + (spellLevel - 1) * 7.5f;
+        spellDetail.damage = 20 + (spellLevel - 1) * 7.5f;
         spellDetail.moveSpeed = 1.5f;
         spellDetail.direction = (target - casterCenter).normalized;
         Instantiate(spell, casterCenter, Quaternion.identity);
@@ -80,7 +80,7 @@ public class SpellFire : ScriptableObject
         SpellFFG spellDetail = spell.GetComponent<SpellFFG>();
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
-        spellDetail.damage = 30 + (spellLevel - 1) * 7.5f;
+        spellDetail.damage = 20 + (spellLevel - 1) * 7.5f;
         spellDetail.stunDuration = 0.5f + (spellLevel - 1) * 0.1f;
         Instantiate (spell, target, Quaternion.identity);
         return spellCooldowns[3];

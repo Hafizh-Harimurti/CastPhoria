@@ -34,8 +34,8 @@ public class SpellGreed : ScriptableObject
         casterTopBound.y = caster.GetComponent<BoxCollider2D>().bounds.max.y;
         for (int i = 0; i < 3 + coinStored; i++)
         {
-            Vector3 spellTarget = Quaternion.Euler(0,0,Random.Range(-180, 180)) * direction + caster.transform.position;
-            spellDetail.target = 2 * spellTarget;
+            Vector3 spellTarget = Quaternion.Euler(0,0,Random.Range(-30, 30)) * direction + caster.transform.position;
+            spellDetail.target = 1.5f * spellTarget;
             coins.Add(Instantiate(spell, casterTopBound, Quaternion.identity));
         }
         coinStored = 0;

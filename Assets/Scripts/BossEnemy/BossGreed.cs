@@ -51,7 +51,14 @@ public class BossGreed : EntityBase
                 cooldownTimer = 0;
                 if(spellGreed.coins.Count == 0)
                 {
-                    CastSpell((GreedSpell)Random.Range(0,2));
+                    if(Random.Range(0,4) == 0)
+                    {
+                        CastSpell(GreedSpell.MySpellNow);
+                    }
+                    else
+                    {
+                        CastSpell(GreedSpell.Bribery);
+                    }
                 }
                 else
                 {

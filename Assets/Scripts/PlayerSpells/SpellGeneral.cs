@@ -38,7 +38,7 @@ public class SpellGeneral : ScriptableObject
         SpellAWG spellDetail = spell.GetComponent<SpellAWG>();
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
-        spellDetail.damage = 2 + (spellLevel - 1) * 0.5f;
+        spellDetail.damage = 5 + (spellLevel - 1) * 0.5f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         spellDetail.stunDuration = 0.1f;
@@ -76,6 +76,7 @@ public class SpellGeneral : ScriptableObject
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
         spellDetail.damagePerTick = 5 + (spellLevel - 1) * 1;
+        spellDetail.effectTick = 0.5f;
         spellDetail.stunDuration = 0.1f;
         spellDetail.slowDuration = 0.3f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
@@ -90,7 +91,7 @@ public class SpellGeneral : ScriptableObject
         SpellFAW spellDetail = spell.GetComponent<SpellFAW>();
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
-        spellDetail.damage = 2 + (spellLevel - 1) * 0.5f;
+        spellDetail.damage = 5 + (spellLevel - 1) * 0.5f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 1 + (spellLevel - 1) * 0.25f;
         spellDetail.gatherSpeed = 0.3f;

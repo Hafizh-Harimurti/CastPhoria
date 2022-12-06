@@ -38,7 +38,7 @@ public class SpellWater : ScriptableObject
         SpellWWF spellDetail = spell.GetComponent<SpellWWF>();
         spellDetail.ownerTag = caster.tag;
         spellDetail.ownerPos = caster.transform.position;
-        spellDetail.damage = 20 + (spellLevel - 1) * 5;
+        spellDetail.damage = 15 + (spellLevel - 1) * 2.5f;
         spellDetail.knockbackStrength = 0.2f;
         spellDetail.slowDuration = 2 + (spellLevel - 1) * 0.5f;
         spellDetail.slowStrength = 3;

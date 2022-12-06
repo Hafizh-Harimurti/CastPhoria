@@ -94,10 +94,9 @@ public class Player : EntityBase
 
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage);
-        if (health <= 0)
+        if (!isInvulnerable)
         {
-            if (!isDead)
+            if (health > damage)
             {
                 SoundManagerScript.PlaySound(SoundManagerScript.playerHitSound);
             }
@@ -106,6 +105,7 @@ public class Player : EntityBase
                 SoundManagerScript.PlaySound(SoundManagerScript.playerDeathSound);
             }
         }
+        base.TakeDamage(damage);
     }
 
     void PlayerInput()
