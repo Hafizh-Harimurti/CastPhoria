@@ -291,11 +291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerTag: Enemy
-  ownerPos: {x: -1.961669, y: -1.8796031, z: 0}
+  ownerPos: {x: -1.1222194, y: -0.4233098, z: 0}
   slowStrength: 0
   slowDuration: 0
   stunDuration: 0
-  target: {x: -2.2167318, y: -4.205344, z: 0}
+  target: {x: -1.5050299, y: 1.0096074, z: 0}
   direction: {x: 0, y: 0, z: 0}
   moveSpeed: 1.5
   damage: 10
@@ -305,6 +305,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
   - {fileID: 9123175724082667971, guid: 7f22977bcca63d3479460709d9619ea8, type: 3}
+  - {fileID: 8186136093420731630, guid: 6a3a0258c0ac84e4285939ba5b07d308, type: 3}
 --- !u!61 &8796622165998395004
 BoxCollider2D:
   m_ObjectHideFlags: 0

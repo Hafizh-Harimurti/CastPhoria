@@ -15,7 +15,7 @@ public class SpellAAW : SpellBase
     void Update()
     {
         spellMovement = Time.deltaTime * moveSpeed * direction;
-        if ((target - transform.position - spellMovement).sqrMagnitude > 5e-3)
+        if ((target - transform.position - spellMovement).sqrMagnitude > 1e-2)
         {
             transform.position += spellMovement;
             foreach(GameObject entity in entitiesHit)

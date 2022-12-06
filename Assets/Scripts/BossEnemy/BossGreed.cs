@@ -132,6 +132,10 @@ public class BossGreed : EntityBase
 
     private void OnDestroy()
     {
+        foreach(GameObject coin in spellGreed.coins)
+        {
+            Destroy(coin);
+        }
         GameManager.Instance.isBossAlive = false;
         GameManager.Instance.RemoveEnemy(this);
     }
