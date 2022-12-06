@@ -58889,6 +58889,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - name: Boss Wave
+    enemies:
+    - {fileID: 7784634335724443805, guid: cf51c0d880c182c4d83034739f5f86e1, type: 3}
+    amounts: 01000000
+    spawnRate: 1
   - name: Normal Wave 1
     enemies:
     - {fileID: 5751916526197663099, guid: 65701629bbde9284ea461256ac4def47, type: 3}
@@ -58906,11 +58911,6 @@ MonoBehaviour:
   - name: Commander Wave
     enemies:
     - {fileID: 7062480375559944615, guid: b7b8f9599cb7e564da181207af763473, type: 3}
-    amounts: 01000000
-    spawnRate: 1
-  - name: Boss Wave
-    enemies:
-    - {fileID: 7784634335724443805, guid: cf51c0d880c182c4d83034739f5f86e1, type: 3}
     amounts: 01000000
     spawnRate: 1
   bossBar: {fileID: 549888232}

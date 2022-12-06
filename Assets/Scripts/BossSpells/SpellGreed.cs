@@ -38,6 +38,7 @@ public class SpellGreed : ScriptableObject
             spellDetail.target = 2 * spellTarget;
             coins.Add(Instantiate(spell, casterTopBound, Quaternion.identity));
         }
+        coinStored = 0;
     }
 
     public void CashGrab(GameObject caster, Vector3 target)

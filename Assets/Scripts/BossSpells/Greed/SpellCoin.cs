@@ -27,7 +27,7 @@ public class SpellCoin : SpellBase
             {
                 isMoving = false;
             }
-            else if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+            else if (!otherGameObject.CompareTag(ownerTag) && (otherGameObject.CompareTag("Player") || otherGameObject.CompareTag("Enemy")))
             {
                 EntityBase entity = otherGameObject.GetComponent<EntityBase>();
                 entity.TakeDamage(damage);

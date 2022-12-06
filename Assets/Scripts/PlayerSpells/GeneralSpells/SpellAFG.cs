@@ -23,7 +23,7 @@ public class SpellAFG : SpellBase
     void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && (otherGameObject.CompareTag("Player") || otherGameObject.CompareTag("Enemy")))
         {
             ImpulseEffect(otherGameObject);
             DestroySpell();

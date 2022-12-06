@@ -25,6 +25,8 @@ public class EnemySwordsman : EntityBase
     {
         if (isActive)
         {
+            relativePos = targetTransform.position - transform.position;
+            spriteRenderer.flipX = relativePos.x < 0;
             if (Vector2.Distance(transform.position, targetTransform.position) > 0.5f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
@@ -39,8 +41,6 @@ public class EnemySwordsman : EntityBase
                     attackTimerCurrent = 0;
                 }
             }
-            relativePos = targetTransform.position - transform.position;
-            spriteRenderer.flipX = relativePos.x < 0;
         }
         attackTimerCurrent += Time.deltaTime;
         OnUpdate();

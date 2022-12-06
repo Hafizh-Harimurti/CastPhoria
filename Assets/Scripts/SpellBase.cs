@@ -47,7 +47,7 @@ public abstract class SpellBase : MonoBehaviour
     protected bool OnTriggerEnter2DBase(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && (otherGameObject.CompareTag("Player") || otherGameObject.CompareTag("Enemy")))
         {
             entitiesHit.Add(collider.gameObject);
             return true;

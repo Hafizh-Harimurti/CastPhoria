@@ -21,7 +21,7 @@ public class SpellNoEscape : SpellBase
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject otherGameObject = collider.gameObject;
-        if (!otherGameObject.CompareTag(ownerTag) && !otherGameObject.CompareTag("Projectile") && !otherGameObject.CompareTag("Spell"))
+        if (!otherGameObject.CompareTag(ownerTag) && (otherGameObject.CompareTag("Player") || otherGameObject.CompareTag("Enemy")))
         {
             EntityBase otherEntity = otherGameObject.GetComponent<EntityBase>();
             otherEntity.TakeDamage(damage);
