@@ -18,7 +18,7 @@ public class SpellPaidAppearance : SpellBase
         {
             Vector3 spawnOffset = new Vector3(Random.Range(spawnXMin, spawnXMax), Random.Range(spawnYMin, spawnYMax), 0);
             GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position + spawnOffset, Quaternion.identity);
-            GameManager.Instance.AddEnemy(enemy.GetComponent<EntityBase>());
+            GameManager.Instance.AddEnemyWithCount(enemy.GetComponent<EntityBase>());
         }
         SpellCoin coin;
         foreach (GameObject coinGameObject in coins)

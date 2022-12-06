@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public List<EntityBase> enemiesAlive;
 
     public string nextScene;
+    public string transitionText;
 
     private void Awake()
     {
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
         enemiesAlive.Add(entity);
     }
 
+    public void AddEnemyWithCount(EntityBase entity)
+    {
+        enemiesAlive.Add(entity);
+        enemiesLeft++;
+    }
+
     public void RemoveEnemy(EntityBase entity)
     {
         enemiesAlive.Remove(entity);
@@ -41,7 +48,16 @@ public class GameManager : MonoBehaviour
     {
         if (isWon)
         {
-            SceneManager.LoadScene(nextScene);
+            if (nextScene == "Game Over Win")
+            {
+                SceneManager.LoadScene(nextScene);
+            }
+            else
+            {
+                NavigationDataHolder.NextSceneToLoad = nextScene;
+                NavigationDataHolder.TransitionSceneText = transitionText;
+                SceneManager.LoadScene("Transition");
+            }
         }
         else
         {

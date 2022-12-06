@@ -61,7 +61,6 @@ public class WaveSpawner : MonoBehaviour
         }
         if (!GameManager.Instance.isBossAlive && !GameManager.Instance.currentWave.name.Contains("Normal"))
         {
-            bossBar.SetActive(false);
             foreach (EntityBase entity in GameManager.Instance.enemiesAlive)
             {
                 entity.isDead = true;

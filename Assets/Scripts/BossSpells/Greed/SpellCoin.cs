@@ -77,6 +77,6 @@ public class SpellCoin : SpellBase
     {
         base.ImpulseEffect();
         GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position, Quaternion.identity);
-        GameManager.Instance.AddEnemy(enemy.GetComponent<EntityBase>());
+        GameManager.Instance.AddEnemyWithCount(enemy.GetComponent<EntityBase>());
     }
 }
