@@ -152,7 +152,7 @@ MonoBehaviour:
   debuffActivationTimer: 1
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
-  timeBetweenSpell: 4
+  timeBetweenSpell: 3
   castRange: 2.5
   spellGreed: {fileID: 11400000, guid: 3d54e3c9627b54a4c9cb36bc4df856ea, type: 2}
 --- !u!50 &-8425033466209043201

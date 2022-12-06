@@ -152,9 +152,8 @@ MonoBehaviour:
   debuffActivationTimer: 1
   targetPos: {x: 0, y: 0, z: 0}
   isDead: 0
-  timeBetweenSpell: 5
+  timeBetweenSpell: 4
   castRange: 2
-  gameState: {fileID: 11400000, guid: 60e1956d456c11d4b9b19f782eaab9ac, type: 2}
   spellSloth: {fileID: 11400000, guid: a8b194d232428db419c7c12c86d46010, type: 2}
 --- !u!50 &1959914919
 Rigidbody2D:
