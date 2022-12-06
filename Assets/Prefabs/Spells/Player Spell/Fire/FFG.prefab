@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerTag: Player
-  ownerPos: {x: 0.7060334, y: 0.33052003, z: 0}
+  ownerPos: {x: 1.6110938, y: -0.6547884, z: 0}
   slowStrength: 0
   slowDuration: 0
   stunDuration: 0.5
