@@ -11,7 +11,7 @@ public class SoundManagerScript : MonoBehaviour
     {
         audioSrc = GetComponent<AudioSource>();
         playerHitSound = Resources.Load<AudioClip>("PlayerHit");
-        playerCastSound = Resources.Load<AudioClip>("PlayerHit");
+        playerCastSound = Resources.Load<AudioClip>("PlayerCast");
         playerDeathSound = Resources.Load<AudioClip>("PlayerDying");
     }
 
