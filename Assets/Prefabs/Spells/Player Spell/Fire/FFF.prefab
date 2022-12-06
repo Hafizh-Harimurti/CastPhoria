@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1378249774450449911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0.001449585}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1378249774200751223}
@@ -180,14 +180,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerTag: Player
-  ownerPos: {x: 0.067753, y: -0.69576275, z: 0}
+  ownerPos: {x: 1.1945671, y: -0.22788325, z: 0}
   slowStrength: 0
   slowDuration: 0
   stunDuration: 0
   target: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
   moveSpeed: 0
-  damage: 40
+  damage: 25
   damagePerTick: 0
   effectTick: 0
   lifetime: 0
